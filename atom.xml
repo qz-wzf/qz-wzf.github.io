@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://qz-wzf.github.io</id>
     <title>Mr.王</title>
-    <updated>2020-06-02T03:33:07.241Z</updated>
+    <updated>2020-06-02T03:39:00.049Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://qz-wzf.github.io"/>
     <link rel="self" href="https://qz-wzf.github.io/atom.xml"/>
-    <subtitle>温故而知新</subtitle>
+    <subtitle>温故而后码</subtitle>
     <logo>https://qz-wzf.github.io/images/avatar.png</logo>
     <icon>https://qz-wzf.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Mr.王</rights>
