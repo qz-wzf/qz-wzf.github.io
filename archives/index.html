@@ -9,7 +9,7 @@
 <meta name="description" content="温故而后码">
 <meta name="theme-color" content="#000">
 <title>Mr.王</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1591084554209">
+<link rel="shortcut icon" href="/favicon.ico?v=1591085218819">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -324,11 +324,15 @@
         <div class="live_ico_item type_info" id="showInfoBtn"></div>
         <div class="live_ico_item type_talk" id="showTalkBtn"></div>
         
+        <div class="live_ico_item type_music" id="musicButton"></div>
+        
         <div class="live_ico_item type_youdu" id="youduButton"></div>
         <div class="live_ico_item type_quit" id="hideButton"></div>
         <input name="live_statu_val" id="live_statu_val" value="0" type="hidden" />
         <audio src="" style="display:none;" id="live2d_bgm" data-bgm="0" preload="none"></audio>
         <input id="duType" value="douqilai" type="hidden">
+        
+        <input name="live2dBGM" value="https://sharefs.yun.kugou.com/202006021606/92a6de0b44bc731911ac92afb0807977/G204/M0A/04/11/rJQEAF5TQfmAUswTAEF3DGFY7n0075.mp3" type="hidden">
         
       </div>
     
@@ -781,7 +785,7 @@
 		}
 		$(document).ready(function () {
 			var AIimgSrc = [];
-			let chooseLive2d = 'rem'
+			let chooseLive2d = 'aoba'
 			if (chooseLive2d === 'histoire') {
 				AIimgSrc.push(message_Path + "model/histoire/histoire.1024/texture_00.png");
 				AIimgSrc.push(message_Path + "model/histoire/histoire.1024/texture_01.png");
@@ -1019,12 +1023,6 @@
     <div class="result" id="result">
       
       <div class="item">
-        <a class="result-title" style="opacity: 0;" href="https://qz-wzf.github.io/post/ce-shi-xia/"" data-c="
-          &lt;p&gt;随便写写&lt;/p&gt;
-">测试下</a>
-      </div>
-      
-      <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://qz-wzf.github.io/post/about/"" data-c="
           &lt;blockquote&gt;
 &lt;p&gt;欢迎来到我的小站呀，很高兴遇见你！🤝&lt;/p&gt;
@@ -1034,6 +1032,12 @@
 &lt;h2 id=&#34;兴趣爱好&#34;&gt;⛹ 兴趣爱好&lt;/h2&gt;
 &lt;h2 id=&#34;联系我呀&#34;&gt;📬 联系我呀&lt;/h2&gt;
 ">关于</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://qz-wzf.github.io/post/ce-shi-xia/"" data-c="
+          &lt;p&gt;随便写写&lt;/p&gt;
+">测试下</a>
       </div>
       
     </div>
@@ -1306,10 +1310,10 @@
 </script>
 
 
-<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;"></canvas>
-<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script>
-<script type="text/javascript" src="/media/js/mouse/fireworks.js"></script>
+<script src="/media/js/mouse/peace.js"></script>
 
+
+<script src="/media/js/cool.js"></script>
 
 
 </html>
