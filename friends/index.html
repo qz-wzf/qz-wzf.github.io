@@ -9,7 +9,7 @@
 <meta name="description" content="温故而后码">
 <meta name="theme-color" content="#000">
 <title>Mr.王</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1591091763396">
+<link rel="shortcut icon" href="/favicon.ico?v=1591168079489">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -166,7 +166,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">1</span>
+        <span class="site-item-stat-count">2</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -1035,6 +1035,95 @@
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://qz-wzf.github.io/post/ios-zhong-yao-chi-chuan-keychain-de-shi-yong/"" data-c="
+          &lt;p&gt;在我们日常开发中，数据如果没有接入数据库的话，大部分的数据都是存储在NSUserDefaults，这样很不安全，后面就开始慢慢的吧一些重要的数据存储在keychain当中了，也不用担心删除应用会删除之前存储的数据了。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;如何使用&lt;/strong&gt;&lt;br&gt;
+首先导入系统框架Security.framework  然后创建KeyChain类&lt;img src=&#34;https://qz-wzf.github.io/post-images/1591156632646.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+.h实现：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-#import&#34;&gt;#import &amp;lt;Security/Security.h&amp;gt;
+
+@interface KeyChain : NSObject
+
+/**
+ 存数据到KeyChain钥匙串
+
+ @param service 你自定义的一个唯一标识作为对应的数据的Key值
+ @param data 要存储的数据
+ */
++ (void)saveByKey:(NSString *)service Object:(id)data;
+
+/**
+ 返回Key值对应得数据
+
+ @param service 对应的Key值
+ */
++ (id)loadByKey:(NSString *)service;
+
+/**
+ 删除Key值对应的得数据
+
+ @param service 对应的Key值
+ */
++ (void)deleteByKey:(NSString *)service;
+
+@end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;.m实现&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-#import&#34;&gt;
+@implementation CHKeychain
++ (NSMutableDictionary *)getKeychainQuery:(NSString *)service {
+  return [NSMutableDictionary dictionaryWithObjectsAndKeys:
+          (id)kSecClassGenericPassword,(id)kSecClass,
+          service, (id)kSecAttrService,
+          service, (id)kSecAttrAccount,
+          (id)kSecAttrAccessibleAfterFirstUnlock,(id)kSecAttrAccessible,
+          nil];
+}
+//存
++ (void)saveByKey:(NSString *)service Object:(id)data {
+  //得到旧数据
+  NSMutableDictionary *keychainQuery = [self getKeychainQuery:service];
+  //删除旧数据
+  SecItemDelete((CFDictionaryRef)keychainQuery);
+  //添加新对象到字典
+  [keychainQuery setObject:[NSKeyedArchiver archivedDataWithRootObject:data] forKey:(id)kSecValueData];
+  //添加到keychain
+  SecItemAdd((CFDictionaryRef)keychainQuery, NULL);
+}
+//删除
++ (void)deleteByKey:(NSString *)service {
+  NSMutableDictionary *keychainQuery = [self getKeychainQuery:service];
+  SecItemDelete((CFDictionaryRef)keychainQuery);
+}
+//加载数据
++ (id)loadByKey:(NSString *)service {
+  id ret = nil;
+  NSMutableDictionary *keychainQuery = [self getKeychainQuery:service];
+  //匹配得到数据
+  [keychainQuery setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnData];
+  [keychainQuery setObject:(id)kSecMatchLimitOne forKey:(id)kSecMatchLimit];
+  CFDataRef keyData = NULL;
+  if (SecItemCopyMatching((CFDictionaryRef)keychainQuery, (CFTypeRef *)&amp;amp;keyData) == noErr) {
+      @try {
+          ret = [NSKeyedUnarchiver unarchiveObjectWithData:(__bridge NSData *)keyData];
+      } @catch (NSException *e) {
+          NSLog(@&amp;quot;Unarchive of %@ failed: %@&amp;quot;, service, e);
+      } @finally {
+      }
+  }
+  if (keyData)
+      CFRelease(keyData);
+  return ret;
+}
+@end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;除此之外，我们还可以通过配置keychain-sharing来使不同应用之间能够相互访问&lt;br&gt;
+&lt;img src=&#34;https://qz-wzf.github.io/post-images/1591167919348.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+如图，在两个项目中配置keychain-sharing，这样就可以访问相互的keychain，以此达到数据共享。&lt;/p&gt;
+">iOS中钥匙串keychain的使用</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://qz-wzf.github.io/post/about/"" data-c="
