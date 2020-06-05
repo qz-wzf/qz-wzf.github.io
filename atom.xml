@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://qz-wzf.github.io</id>
     <title>Mr.王</title>
-    <updated>2020-06-03T07:08:06.100Z</updated>
+    <updated>2020-06-05T09:46:12.869Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://qz-wzf.github.io"/>
     <link rel="self" href="https://qz-wzf.github.io/atom.xml"/>
@@ -11,11 +11,133 @@
     <icon>https://qz-wzf.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Mr.王</rights>
     <entry>
+        <title type="html"><![CDATA[iOS-NSSortDescriptor排序]]></title>
+        <id>https://qz-wzf.github.io/post/ios-nssortdescriptor-pai-xu/</id>
+        <link href="https://qz-wzf.github.io/post/ios-nssortdescriptor-pai-xu/">
+        </link>
+        <updated>2020-06-03T07:14:19.000Z</updated>
+        <content type="html"><![CDATA[<p>在OC中，NSSortDescriptor可以按照对象的属性进行排序，也可以对一个字符串集合进行指定规则排序</p>
+<p><strong>初始化方法</strong><br>
+NSSortDescriptor的初始化方法有以下几种</p>
+<pre><code>+ (instancetype)sortDescriptorWithKey:(nullable NSString *)key ascending:(BOOL)ascending API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));
++ (instancetype)sortDescriptorWithKey:(nullable NSString *)key ascending:(BOOL)ascending selector:(nullable SEL)selector API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));
+- (instancetype)initWithKey:(nullable NSString *)key ascending:(BOOL)ascending;
+- (instancetype)initWithKey:(nullable NSString *)key ascending:(BOOL)ascending selector:(nullable SEL)selector;
++ (instancetype)sortDescriptorWithKey:(nullable NSString *)key ascending:(BOOL)ascending comparator:(NSComparator)cmptr API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));
+- (instancetype)initWithKey:(nullable NSString *)key ascending:(BOOL)ascending comparator:(NSComparator)cmptr API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));
+</code></pre>
+<p><strong>项目演示</strong><br>
+首先我们创建一个简单的model：</p>
+<pre><code class="language-objective-c">@interface TestModel : NSObject
+
+//姓名
+@property (nonatomic, copy) NSString *name;
+//年龄
+@property (nonatomic, assign) NSInteger age;
+//身高
+@property (nonatomic, assign) NSInteger height;
+//地址
+@property (nonatomic, copy) NSString *address;
+
+@end
+</code></pre>
+<p>接下来在ViewController当中的应用：</p>
+<pre><code class="language-objective-c">//生成数据
+NSMutableArray * dataAry = [NSMutableArray array];
+NSArray *nameAry = @[@&quot;张三&quot;,@&quot;李四&quot;,@&quot;王五&quot;,@&quot;赵六&quot;,@&quot;小新&quot;];
+for (int i = 0; i &lt; nameAry.count; i++) {
+    TestModel * model = [TestModel new];
+    model.name = nameAry[i];
+    model.age = 30+i;
+    model.height = 170+i;
+    model.address = @&quot;福建省&quot;;
+    [dataAry addObject:model];
+}
+</code></pre>
+<p>筛选实现，按照年龄从小到大排序</p>
+<pre><code>NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@&quot;age&quot; ascending:YES];
+[dataAry sortUsingDescriptors:@[sort]];
+
+//输出结果
+for (TestModel *dataModel in dataAry) {
+    NSLog(@&quot;%@---%ld---%ld---%@&quot;,dataModel.name,dataModel.age,dataModel.height,dataModel.address);
+}
+</code></pre>
+<p><img src="https://qz-wzf.github.io/post-images/1591349875951.png" alt="" loading="lazy"><br>
+<strong>多条件筛选</strong></p>
+<pre><code>//生成数据
+NSMutableArray * dataAry = [NSMutableArray array];
+NSArray *nameAry = @[@&quot;张三&quot;,@&quot;李四&quot;,@&quot;王五&quot;,@&quot;赵六&quot;,@&quot;小新&quot;];
+for (int i = 0; i &lt; nameAry.count; i++) {
+    TestModel * model = [TestModel new];
+    model.name = nameAry[i];
+    model.age = 30+i/2;
+    model.height = 170+i;
+    model.address = @&quot;福建省&quot;;
+    [dataAry addObject:model];
+}
+
+NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@&quot;age&quot; ascending:YES];
+NSSortDescriptor *sort1 = [NSSortDescriptor sortDescriptorWithKey:@&quot;height&quot; ascending:NO];
+[dataAry sortUsingDescriptors:@[sort,sort1]];
+
+//输出结果
+for (TestModel *dataModel in dataAry) {
+    NSLog(@&quot;%@---%ld---%ld---%@&quot;,dataModel.name,dataModel.age,dataModel.height,dataModel.address);
+}
+</code></pre>
+<p><img src="https://qz-wzf.github.io/post-images/1591349864281.png" alt="" loading="lazy"><br>
+上面多条件筛选按照年龄从小到大，且身高从大到小排序</p>
+<p><strong>注意事项</strong><br>
+使用NSSortDescriptor进行排序是，如果后台返回的是字符串数字时，当有字符串数字位数不同是，筛选会根据首个数字进行排序，这样筛选出来的结果就有问题了<br>
+示例：</p>
+<pre><code>    //生成数据
+    NSMutableArray * dataAry = [NSMutableArray array];
+    NSArray *nameAry = @[@&quot;张三&quot;,@&quot;李四&quot;,@&quot;王五&quot;,@&quot;赵六&quot;,@&quot;小新&quot;];
+    NSArray *ageAry = @[@&quot;1&quot;,@&quot;22&quot;,@&quot;20&quot;,@&quot;212&quot;,@&quot;203&quot;];
+
+    for (int i = 0; i &lt; nameAry.count; i++) {
+        TestModel * model = [TestModel new];
+        model.name = nameAry[i];
+        model.age = ageAry[i];
+        model.height = 170+i;
+        model.address = @&quot;福建省&quot;;
+        [dataAry addObject:model];
+    }
+    
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@&quot;age&quot; ascending:YES];
+    [dataAry sortUsingDescriptors:@[sort]];
+    
+    //输出结果
+    for (TestModel *dataModel in dataAry) {
+        NSLog(@&quot;%@---%@---%ld---%@&quot;,dataModel.name,dataModel.age,dataModel.height,dataModel.address);
+    }
+</code></pre>
+<p>输出结果：<img src="https://qz-wzf.github.io/post-images/1591349753531.png" alt="" loading="lazy"></p>
+<p><strong>解决方案</strong><br>
+一、可以把对应的属性设置成NSNumber</p>
+<p>二、在不影响之前的数据时，我们可以新建一个属性来存储转换过的数据<br>
+在.h中</p>
+<pre><code>@property (nonatomic, assign) NSInteger newAge;
+</code></pre>
+<p>在.m中</p>
+<pre><code>- (NSInteger)newAge
+{
+    NSString *ageStr = _age;
+    
+    _newAge = [ageStr intValue];
+    return _newAge;
+}
+</code></pre>
+<p>这样再进行筛选的时候就不会出现数据错乱了。</p>
+]]></content>
+    </entry>
+    <entry>
         <title type="html"><![CDATA[iOS中钥匙串keychain的使用]]></title>
         <id>https://qz-wzf.github.io/post/ios-zhong-yao-chi-chuan-keychain-de-shi-yong/</id>
         <link href="https://qz-wzf.github.io/post/ios-zhong-yao-chi-chuan-keychain-de-shi-yong/">
         </link>
-        <updated>2020-06-03T01:50:13.000Z</updated>
+        <updated>2020-06-02T02:50:13.000Z</updated>
         <content type="html"><![CDATA[<p>在我们日常开发中，数据如果没有接入数据库的话，大部分的数据都是存储在NSUserDefaults，这样很不安全，后面就开始慢慢的吧一些重要的数据存储在keychain当中了，也不用担心删除应用会删除之前存储的数据了。</p>
 <p><strong>如何使用</strong><br>
 首先导入系统框架Security.framework  然后创建KeyChain类<img src="https://qz-wzf.github.io/post-images/1591156632646.png" alt="" loading="lazy"><br>

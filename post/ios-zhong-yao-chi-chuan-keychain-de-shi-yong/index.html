@@ -9,7 +9,7 @@
 <meta name="description" content="温故而后码">
 <meta name="theme-color" content="#000">
 <title>iOS中钥匙串keychain的使用 | Mr.王</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1591168079489">
+<link rel="shortcut icon" href="/favicon.ico?v=1591350336868">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -183,7 +183,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">2</span>
+        <span class="site-item-stat-count">3</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -305,7 +305,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-06-03</span>
+      <span>2020-06-02</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -442,6 +442,10 @@
   </div>
   <div class="nav">
     <div class="nav-prev">
+      
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" title="iOS-NSSortDescriptor排序" href="https://qz-wzf.github.io/post/ios-nssortdescriptor-pai-xu/">iOS-NSSortDescriptor排序</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="iOS-NSSortDescriptor排序" href="https://qz-wzf.github.io/post/ios-nssortdescriptor-pai-xu/">上一篇</a>
       
     </div>
     <div class="nav-next">
@@ -1508,6 +1512,137 @@
     <div class="result" id="result">
       
       <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://qz-wzf.github.io/post/ios-nssortdescriptor-pai-xu/"" data-c="
+          &lt;p&gt;在OC中，NSSortDescriptor可以按照对象的属性进行排序，也可以对一个字符串集合进行指定规则排序&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;初始化方法&lt;/strong&gt;&lt;br&gt;
+NSSortDescriptor的初始化方法有以下几种&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;+ (instancetype)sortDescriptorWithKey:(nullable NSString *)key ascending:(BOOL)ascending API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));
++ (instancetype)sortDescriptorWithKey:(nullable NSString *)key ascending:(BOOL)ascending selector:(nullable SEL)selector API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));
+- (instancetype)initWithKey:(nullable NSString *)key ascending:(BOOL)ascending;
+- (instancetype)initWithKey:(nullable NSString *)key ascending:(BOOL)ascending selector:(nullable SEL)selector;
++ (instancetype)sortDescriptorWithKey:(nullable NSString *)key ascending:(BOOL)ascending comparator:(NSComparator)cmptr API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));
+- (instancetype)initWithKey:(nullable NSString *)key ascending:(BOOL)ascending comparator:(NSComparator)cmptr API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;项目演示&lt;/strong&gt;&lt;br&gt;
+首先我们创建一个简单的model：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-objective-c&#34;&gt;@interface TestModel : NSObject
+
+//姓名
+@property (nonatomic, copy) NSString *name;
+//年龄
+@property (nonatomic, assign) NSInteger age;
+//身高
+@property (nonatomic, assign) NSInteger height;
+//地址
+@property (nonatomic, copy) NSString *address;
+
+@end
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;接下来在ViewController当中的应用：&lt;/p&gt;
+&lt;pre&gt;&lt;code class=&#34;language-objective-c&#34;&gt;//生成数据
+NSMutableArray * dataAry = [NSMutableArray array];
+NSArray *nameAry = @[@&amp;quot;张三&amp;quot;,@&amp;quot;李四&amp;quot;,@&amp;quot;王五&amp;quot;,@&amp;quot;赵六&amp;quot;,@&amp;quot;小新&amp;quot;];
+for (int i = 0; i &amp;lt; nameAry.count; i++) {
+    TestModel * model = [TestModel new];
+    model.name = nameAry[i];
+    model.age = 30+i;
+    model.height = 170+i;
+    model.address = @&amp;quot;福建省&amp;quot;;
+    [dataAry addObject:model];
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;筛选实现，按照年龄从小到大排序&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@&amp;quot;age&amp;quot; ascending:YES];
+[dataAry sortUsingDescriptors:@[sort]];
+
+//输出结果
+for (TestModel *dataModel in dataAry) {
+    NSLog(@&amp;quot;%@---%ld---%ld---%@&amp;quot;,dataModel.name,dataModel.age,dataModel.height,dataModel.address);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://qz-wzf.github.io/post-images/1591349875951.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;strong&gt;多条件筛选&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;//生成数据
+NSMutableArray * dataAry = [NSMutableArray array];
+NSArray *nameAry = @[@&amp;quot;张三&amp;quot;,@&amp;quot;李四&amp;quot;,@&amp;quot;王五&amp;quot;,@&amp;quot;赵六&amp;quot;,@&amp;quot;小新&amp;quot;];
+for (int i = 0; i &amp;lt; nameAry.count; i++) {
+    TestModel * model = [TestModel new];
+    model.name = nameAry[i];
+    model.age = 30+i/2;
+    model.height = 170+i;
+    model.address = @&amp;quot;福建省&amp;quot;;
+    [dataAry addObject:model];
+}
+
+NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@&amp;quot;age&amp;quot; ascending:YES];
+NSSortDescriptor *sort1 = [NSSortDescriptor sortDescriptorWithKey:@&amp;quot;height&amp;quot; ascending:NO];
+[dataAry sortUsingDescriptors:@[sort,sort1]];
+
+//输出结果
+for (TestModel *dataModel in dataAry) {
+    NSLog(@&amp;quot;%@---%ld---%ld---%@&amp;quot;,dataModel.name,dataModel.age,dataModel.height,dataModel.address);
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://qz-wzf.github.io/post-images/1591349864281.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+上面多条件筛选按照年龄从小到大，且身高从大到小排序&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;注意事项&lt;/strong&gt;&lt;br&gt;
+使用NSSortDescriptor进行排序是，如果后台返回的是字符串数字时，当有字符串数字位数不同是，筛选会根据首个数字进行排序，这样筛选出来的结果就有问题了&lt;br&gt;
+示例：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    //生成数据
+    NSMutableArray * dataAry = [NSMutableArray array];
+    NSArray *nameAry = @[@&amp;quot;张三&amp;quot;,@&amp;quot;李四&amp;quot;,@&amp;quot;王五&amp;quot;,@&amp;quot;赵六&amp;quot;,@&amp;quot;小新&amp;quot;];
+    NSArray *ageAry = @[@&amp;quot;1&amp;quot;,@&amp;quot;22&amp;quot;,@&amp;quot;20&amp;quot;,@&amp;quot;212&amp;quot;,@&amp;quot;203&amp;quot;];
+
+    for (int i = 0; i &amp;lt; nameAry.count; i++) {
+        TestModel * model = [TestModel new];
+        model.name = nameAry[i];
+        model.age = ageAry[i];
+        model.height = 170+i;
+        model.address = @&amp;quot;福建省&amp;quot;;
+        [dataAry addObject:model];
+    }
+    
+    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@&amp;quot;age&amp;quot; ascending:YES];
+    [dataAry sortUsingDescriptors:@[sort]];
+    
+    //输出结果
+    for (TestModel *dataModel in dataAry) {
+        NSLog(@&amp;quot;%@---%@---%ld---%@&amp;quot;,dataModel.name,dataModel.age,dataModel.height,dataModel.address);
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输出结果：&lt;img src=&#34;https://qz-wzf.github.io/post-images/1591349753531.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;解决方案&lt;/strong&gt;&lt;br&gt;
+一、可以把对应的属性设置成NSNumber&lt;/p&gt;
+&lt;p&gt;二、在不影响之前的数据时，我们可以新建一个属性来存储转换过的数据&lt;br&gt;
+在.h中&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;@property (nonatomic, assign) NSInteger newAge;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;在.m中&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;- (NSInteger)newAge
+{
+    NSString *ageStr = _age;
+    
+    _newAge = [ageStr intValue];
+    return _newAge;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这样再进行筛选的时候就不会出现数据错乱了。&lt;/p&gt;
+">iOS-NSSortDescriptor排序</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://qz-wzf.github.io/post/about/"" data-c="
+          &lt;blockquote&gt;
+&lt;p&gt;欢迎来到我的小站呀，很高兴遇见你！🤝&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;关于本站&#34;&gt;🏠 关于本站&lt;/h2&gt;
+&lt;h2 id=&#34;博主是谁&#34;&gt;👨‍💻 博主是谁&lt;/h2&gt;
+&lt;h2 id=&#34;兴趣爱好&#34;&gt;⛹ 兴趣爱好&lt;/h2&gt;
+&lt;h2 id=&#34;联系我呀&#34;&gt;📬 联系我呀&lt;/h2&gt;
+">关于</a>
+      </div>
+      
+      <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://qz-wzf.github.io/post/ios-zhong-yao-chi-chuan-keychain-de-shi-yong/"" data-c="
           &lt;p&gt;在我们日常开发中，数据如果没有接入数据库的话，大部分的数据都是存储在NSUserDefaults，这样很不安全，后面就开始慢慢的吧一些重要的数据存储在keychain当中了，也不用担心删除应用会删除之前存储的数据了。&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;如何使用&lt;/strong&gt;&lt;br&gt;
@@ -1594,18 +1729,6 @@
 &lt;img src=&#34;https://qz-wzf.github.io/post-images/1591167919348.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
 如图，在两个项目中配置keychain-sharing，这样就可以访问相互的keychain，以此达到数据共享。&lt;/p&gt;
 ">iOS中钥匙串keychain的使用</a>
-      </div>
-      
-      <div class="item">
-        <a class="result-title" style="opacity: 0;" href="https://qz-wzf.github.io/post/about/"" data-c="
-          &lt;blockquote&gt;
-&lt;p&gt;欢迎来到我的小站呀，很高兴遇见你！🤝&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h2 id=&#34;关于本站&#34;&gt;🏠 关于本站&lt;/h2&gt;
-&lt;h2 id=&#34;博主是谁&#34;&gt;👨‍💻 博主是谁&lt;/h2&gt;
-&lt;h2 id=&#34;兴趣爱好&#34;&gt;⛹ 兴趣爱好&lt;/h2&gt;
-&lt;h2 id=&#34;联系我呀&#34;&gt;📬 联系我呀&lt;/h2&gt;
-">关于</a>
       </div>
       
       <div class="item">
