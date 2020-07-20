@@ -9,7 +9,7 @@
 <meta name="description" content="温故而后码">
 <meta name="theme-color" content="#000">
 <title>iOS-NSSortDescriptor排序 | Mr.王</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1591350336868">
+<link rel="shortcut icon" href="/favicon.ico?v=1595213290558">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -183,7 +183,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">3</span>
+        <span class="site-item-stat-count">5</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -472,6 +472,10 @@ for (TestModel *dataModel in dataAry) {
   </div>
   <div class="nav">
     <div class="nav-prev">
+      
+        <i class="fa fa-chevron-left"></i>
+        <a class="nav-pc-next" title="ios中关于collectionView刷新问题" href="https://qz-wzf.github.io/post/ios-zhong-guan-yu-collectionview-shua-xin-wen-ti/">ios中关于collectionView刷新问题</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="ios中关于collectionView刷新问题" href="https://qz-wzf.github.io/post/ios-zhong-guan-yu-collectionview-shua-xin-wen-ti/">上一篇</a>
       
     </div>
     <div class="nav-next">
@@ -1536,6 +1540,37 @@ for (TestModel *dataModel in dataAry) {
       <hr>
     </div>
     <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://qz-wzf.github.io/post/xcode-sheng-ji-chu-xian-wen-ti/"" data-c="
+          &lt;p&gt;&lt;strong&gt;1、系统框架报错类似：photos出现Error&lt;/strong&gt;&lt;br&gt;
+解决办法：1、切换成老的编译环境Legacy Build System    xcode--file--project settings--Build System--legacy Build System&lt;br&gt;
+2、更新pods：cocoapods版本低也会造成编译失败&lt;/p&gt;
+">xcode升级出现问题</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://qz-wzf.github.io/post/ios-zhong-guan-yu-collectionview-shua-xin-wen-ti/"" data-c="
+          &lt;p&gt;在我们日常开发中，难免用到collectionview，但是当我们的collectionView只加载一次的时候，修改model后使用reload进行刷新collectionView就会出现视图错乱的效果，让你找不到边，这时候我们就需要使用另外一种方法来进行刷新collectionView&lt;/p&gt;
+&lt;p&gt;解决方法：在你需要刷新的时候遍历所有cell来进行刷新&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;for (DeviceMonitorCollectionViewCell *cell in collectionView.visibleCells) {
+    
+        NSIndexPath *indexPath = [collectionView indexPathForCell:cell];
+    
+        DeviceMonitorModel * model = self.dataArray[indexPath.item];
+        if (model.isSelect) {
+            cell.layer.borderColor = kRedColor.CGColor;
+            cell.layer.borderWidth = 1;
+        }
+        else
+        {
+            cell.layer.borderColor = kClearColor.CGColor;
+            cell.layer.borderWidth = 1;
+        }
+    }
+&lt;/code&gt;&lt;/pre&gt;
+">ios中关于collectionView刷新问题</a>
+      </div>
       
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://qz-wzf.github.io/post/ios-nssortdescriptor-pai-xu/"" data-c="
