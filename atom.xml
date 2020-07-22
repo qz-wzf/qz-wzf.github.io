@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://qz-wzf.github.io</id>
     <title>Mr.王</title>
-    <updated>2020-07-22T03:23:55.483Z</updated>
+    <updated>2020-07-22T03:28:40.484Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://qz-wzf.github.io"/>
     <link rel="self" href="https://qz-wzf.github.io/atom.xml"/>
@@ -17,7 +17,7 @@
         </link>
         <updated>2020-07-22T02:51:36.000Z</updated>
         <content type="html"><![CDATA[<p><strong>一：安装JDK1.8安装包</strong><br>
-1、到<a href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">Oracle官网</a>下载<br>
+1、到<font color=#16A7EF><a href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">Oracle官网</a></font>下载<br>
 <img src="https://qz-wzf.github.io/post-images/1595387640878.png" alt="" loading="lazy"><br>
 2、解压下载的包，然后根据步骤一步步安装<br>
 3、配置系统的环境变量，你要知道jdk的安装路径，然后输入命令进行过编辑</p>
