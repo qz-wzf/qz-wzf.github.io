@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="温故而后码">
 <meta name="theme-color" content="#000">
-<title>测试下 | Mr.王</title>
+<title>MAC终端命令 | Mr.王</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1595388136035">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -38,7 +38,7 @@
 
 
 
-  <meta name="description" content="测试下" />
+  <meta name="description" content="MAC终端命令" />
   <meta name="keywords" content="" />
 </head>
 
@@ -312,8 +312,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://qz-wzf.github.io/post/ce-shi-xia/">
-      测试下
+    <a class="post-title-link" href="https://qz-wzf.github.io/post/mac-zhong-duan-ming-ling/">
+      MAC终端命令
     </a>
   </h1>
   <div class="post-meta">
@@ -321,7 +321,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-06-02</span>
+      <span>2020-07-22</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -332,12 +332,12 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>4<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>204<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/ce-shi-xia/" data-flag-title="测试下" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/mac-zhong-duan-ming-ling/" data-flag-title="MAC终端命令" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -346,8 +346,37 @@
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <p>随便写写<br>
-<img src="https://qz-wzf.github.io/post-images/1591090144117.png" alt="" loading="lazy"></p>
+              <p><strong>一：安装JDK1.8安装包</strong><br>
+1、到<a href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">Oracle官网</a>下载<br>
+<img src="https://qz-wzf.github.io/post-images/1595387640878.png" alt="" loading="lazy"><br>
+2、解压下载的包，然后根据步骤一步步安装<br>
+3、配置系统的环境变量，你要知道jdk的安装路径，然后输入命令进行过编辑</p>
+<pre><code>open .bash_profile
+</code></pre>
+<p>在文件当中输入jdk路径：</p>
+<pre><code>export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home
+</code></pre>
+<p>4、查看jdk是否安装成功，出现以下内容就证明安装成功了</p>
+<pre><code>java -version
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://qz-wzf.github.io/post-images/1595388099403.png" alt="" loading="lazy"></figure>
+<p><strong>二：安装maven</strong><br>
+1、进入编辑profile</p>
+<pre><code> sudo vim /etc/profile 
+</code></pre>
+<p>2、输入英文状态下i，编写profile，输入以下文本</p>
+<pre><code>export M2_HOME=(maven路径)
+export PATH=$PATH:$M2_HOME/bin
+</code></pre>
+<p>3、然后按ESC退出编辑，输入下面命令保存</p>
+<pre><code>:wq!
+</code></pre>
+<p>4、输入以下命令使修改的profile文件生效：</p>
+<pre><code>source /etc/profile
+</code></pre>
+<p>5、查看maven是否安装成功</p>
+<pre><code>maven -v
+</code></pre>
 
             </div>
             
@@ -364,7 +393,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://qz-wzf.github.io/post/ce-shi-xia/" title="测试下">测试下</a>
+      <a href="https://qz-wzf.github.io/post/mac-zhong-duan-ming-ling/" title="MAC终端命令">MAC终端命令</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -377,12 +406,12 @@
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="iOS中钥匙串keychain的使用" href="https://qz-wzf.github.io/post/ios-zhong-yao-chi-chuan-keychain-de-shi-yong/">iOS中钥匙串keychain的使用</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="iOS中钥匙串keychain的使用" href="https://qz-wzf.github.io/post/ios-zhong-yao-chi-chuan-keychain-de-shi-yong/">上一篇</a>
-      
     </div>
     <div class="nav-next">
+      
+        <a class="nav-pc-next" title="xcode升级出现问题" href="https://qz-wzf.github.io/post/xcode-sheng-ji-chu-xian-wen-ti/">xcode升级出现问题</a>
+        <a class="nav-mobile-next" title="xcode升级出现问题" href="https://qz-wzf.github.io/post/xcode-sheng-ji-chu-xian-wen-ti/">下一篇</a>
+        <i class="fa fa-chevron-right"></i>
       
     </div>
   </div>

@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://qz-wzf.github.io</id>
     <title>Mr.王</title>
-    <updated>2020-07-20T03:59:37.855Z</updated>
+    <updated>2020-07-22T03:23:29.074Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://qz-wzf.github.io"/>
     <link rel="self" href="https://qz-wzf.github.io/atom.xml"/>
@@ -10,6 +10,45 @@
     <logo>https://qz-wzf.github.io/images/avatar.png</logo>
     <icon>https://qz-wzf.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Mr.王</rights>
+    <entry>
+        <title type="html"><![CDATA[MAC终端命令]]></title>
+        <id>https://qz-wzf.github.io/post/mac-zhong-duan-ming-ling/</id>
+        <link href="https://qz-wzf.github.io/post/mac-zhong-duan-ming-ling/">
+        </link>
+        <updated>2020-07-22T02:51:36.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>一：安装JDK1.8安装包</strong><br>
+1、到<a href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html">Oracle官网</a>下载<br>
+<img src="https://qz-wzf.github.io/post-images/1595387640878.png" alt="" loading="lazy"><br>
+2、解压下载的包，然后根据步骤一步步安装<br>
+3、配置系统的环境变量，你要知道jdk的安装路径，然后输入命令进行过编辑</p>
+<pre><code>open .bash_profile
+</code></pre>
+<p>在文件当中输入jdk路径：</p>
+<pre><code>export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home
+</code></pre>
+<p>4、查看jdk是否安装成功，出现以下内容就证明安装成功了</p>
+<pre><code>java -version
+</code></pre>
+<figure data-type="image" tabindex="1"><img src="https://qz-wzf.github.io/post-images/1595388099403.png" alt="" loading="lazy"></figure>
+<p><strong>二：安装maven</strong><br>
+1、进入编辑profile</p>
+<pre><code> sudo vim /etc/profile 
+</code></pre>
+<p>2、输入英文状态下i，编写profile，输入以下文本</p>
+<pre><code>export M2_HOME=(maven路径)
+export PATH=$PATH:$M2_HOME/bin
+</code></pre>
+<p>3、然后按ESC退出编辑，输入下面命令保存</p>
+<pre><code>:wq!
+</code></pre>
+<p>4、输入以下命令使修改的profile文件生效：</p>
+<pre><code>source /etc/profile
+</code></pre>
+<p>5、查看maven是否安装成功</p>
+<pre><code>maven -v
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[xcode升级出现问题]]></title>
         <id>https://qz-wzf.github.io/post/xcode-sheng-ji-chu-xian-wen-ti/</id>
