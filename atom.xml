@@ -2,14 +2,30 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://qz-wzf.github.io</id>
     <title>Mr.王</title>
-    <updated>2020-12-03T09:10:33.314Z</updated>
+    <updated>2021-02-05T08:42:37.547Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://qz-wzf.github.io"/>
     <link rel="self" href="https://qz-wzf.github.io/atom.xml"/>
     <subtitle>温故而后码</subtitle>
     <logo>https://qz-wzf.github.io/images/avatar.png</logo>
     <icon>https://qz-wzf.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2020, Mr.王</rights>
+    <rights>All rights reserved 2021, Mr.王</rights>
+    <entry>
+        <title type="html"><![CDATA[iOS在cell上加载UIImageVIew动画，滑动动画停止的解决办法]]></title>
+        <id>https://qz-wzf.github.io/post/ios-zai-cell-shang-jia-zai-imageview-dong-hua-hua-dong-dong-hua-ting-zhi-jie-jue-ban-fa/</id>
+        <link href="https://qz-wzf.github.io/post/ios-zai-cell-shang-jia-zai-imageview-dong-hua-hua-dong-dong-hua-ting-zhi-jie-jue-ban-fa/">
+        </link>
+        <updated>2021-02-05T08:39:35.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>解决办法：重写cell</strong></p>
+<pre><code>- (void)setSelected:(BOOL)selected
+{   
+}
+- (void)setHighlighted:(BOOL)highlighted
+{ 
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[MAC终端命令]]></title>
         <id>https://qz-wzf.github.io/post/mac-zhong-duan-ming-ling/</id>

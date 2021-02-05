@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="温故而后码">
 <meta name="theme-color" content="#000">
-<title>xcode升级出现问题 | Mr.王</title>
+<title>iOS在cell上加载UIImageVIew动画，滑动动画停止的解决办法 | Mr.王</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1612514554923">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -38,7 +38,7 @@
 
 
 
-  <meta name="description" content="xcode升级出现问题" />
+  <meta name="description" content="iOS在cell上加载UIImageVIew动画，滑动动画停止的解决办法" />
   <meta name="keywords" content="" />
 </head>
 
@@ -312,8 +312,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://qz-wzf.github.io/post/xcode-sheng-ji-chu-xian-wen-ti/">
-      xcode升级出现问题
+    <a class="post-title-link" href="https://qz-wzf.github.io/post/ios-zai-cell-shang-jia-zai-imageview-dong-hua-hua-dong-dong-hua-ting-zhi-jie-jue-ban-fa/">
+      iOS在cell上加载UIImageVIew动画，滑动动画停止的解决办法
     </a>
   </h1>
   <div class="post-meta">
@@ -321,7 +321,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2020-07-20</span>
+      <span>2021-02-05</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -332,12 +332,12 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>54<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>15<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/xcode-sheng-ji-chu-xian-wen-ti/" data-flag-title="xcode升级出现问题" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/ios-zai-cell-shang-jia-zai-imageview-dong-hua-hua-dong-dong-hua-ting-zhi-jie-jue-ban-fa/" data-flag-title="iOS在cell上加载UIImageVIew动画，滑动动画停止的解决办法" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -346,9 +346,14 @@
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <p><strong>1、系统框架报错类似：photos出现Error</strong><br>
-解决办法：1、切换成老的编译环境Legacy Build System    xcode--file--project settings--Build System--legacy Build System<br>
-2、更新pods：cocoapods版本低也会造成编译失败</p>
+              <p><strong>解决办法：重写cell</strong></p>
+<pre><code>- (void)setSelected:(BOOL)selected
+{   
+}
+- (void)setHighlighted:(BOOL)highlighted
+{ 
+}
+</code></pre>
 
             </div>
             
@@ -365,7 +370,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://qz-wzf.github.io/post/xcode-sheng-ji-chu-xian-wen-ti/" title="xcode升级出现问题">xcode升级出现问题</a>
+      <a href="https://qz-wzf.github.io/post/ios-zai-cell-shang-jia-zai-imageview-dong-hua-hua-dong-dong-hua-ting-zhi-jie-jue-ban-fa/" title="iOS在cell上加载UIImageVIew动画，滑动动画停止的解决办法">iOS在cell上加载UIImageVIew动画，滑动动画停止的解决办法</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -378,15 +383,11 @@
   <div class="nav">
     <div class="nav-prev">
       
-        <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="MAC终端命令" href="https://qz-wzf.github.io/post/mac-zhong-duan-ming-ling/">MAC终端命令</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="MAC终端命令" href="https://qz-wzf.github.io/post/mac-zhong-duan-ming-ling/">上一篇</a>
-      
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="ios中关于collectionView刷新问题" href="https://qz-wzf.github.io/post/ios-zhong-guan-yu-collectionview-shua-xin-wen-ti/">ios中关于collectionView刷新问题</a>
-        <a class="nav-mobile-next" title="ios中关于collectionView刷新问题" href="https://qz-wzf.github.io/post/ios-zhong-guan-yu-collectionview-shua-xin-wen-ti/">下一篇</a>
+        <a class="nav-pc-next" title="MAC终端命令" href="https://qz-wzf.github.io/post/mac-zhong-duan-ming-ling/">MAC终端命令</a>
+        <a class="nav-mobile-next" title="MAC终端命令" href="https://qz-wzf.github.io/post/mac-zhong-duan-ming-ling/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>
