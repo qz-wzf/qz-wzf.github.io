@@ -8,7 +8,7 @@
 <meta name="keywords" content="Gridea静态个人博客">
 <meta name="description" content="温故而后码">
 <meta name="theme-color" content="#000">
-<title>iOS在cell上加载UIImageVIew动画，滑动动画停止的解决办法 | Mr.王</title>
+<title>日常开发常用 | Mr.王</title>
 <link rel="shortcut icon" href="/favicon.ico?v=1638150534982">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
@@ -38,7 +38,7 @@
 
 
 
-  <meta name="description" content="iOS在cell上加载UIImageVIew动画，滑动动画停止的解决办法" />
+  <meta name="description" content="日常开发常用" />
   <meta name="keywords" content="" />
 </head>
 
@@ -312,8 +312,8 @@
           <div class="section bg-color post post-page">
             <header class="post-header">
   <h1 class="post-title">
-    <a class="post-title-link" href="https://qz-wzf.github.io/post/ios-zai-cell-shang-jia-zai-imageview-dong-hua-hua-dong-dong-hua-ting-zhi-jie-jue-ban-fa/">
-      iOS在cell上加载UIImageVIew动画，滑动动画停止的解决办法
+    <a class="post-title-link" href="https://qz-wzf.github.io/post/ri-chang-kai-fa-chang-yong/">
+      日常开发常用
     </a>
   </h1>
   <div class="post-meta">
@@ -321,7 +321,7 @@
     <span class="meta-item pc-show">
       <i class="fa fa-calendar-o"></i>
       <span class="language" data-lan="publish">发布于</span>
-      <span>2021-02-05</span>
+      <span>2021-08-24</span>
       <span class="post-meta-divider pc-show">|</span>
     </span>
     
@@ -332,12 +332,12 @@
     <span class="meta-item">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-file-word-o"></i>
-      <span>15<span class="pc-show language" data-lan="words">字数</span></span>
+      <span>114<span class="pc-show language" data-lan="words">字数</span></span>
     </span>
     
     
     
-    <span id="/post/ios-zai-cell-shang-jia-zai-imageview-dong-hua-hua-dong-dong-hua-ting-zhi-jie-jue-ban-fa/" data-flag-title="iOS在cell上加载UIImageVIew动画，滑动动画停止的解决办法" class="meta-item pc-show leancloud_visitors">
+    <span id="/post/ri-chang-kai-fa-chang-yong/" data-flag-title="日常开发常用" class="meta-item pc-show leancloud_visitors">
       <span class="post-meta-divider">|</span>
       <i class="fa fa-eye"></i>
       <span><span class="language" data-lan="view">浏览量</span>：<span class="leancloud-visitors-count"></span></span>
@@ -346,14 +346,22 @@
   </div>
 </header>
             <div class="post-body next-md-body" id="post_body">
-              <p><strong>解决办法：重写cell</strong></p>
-<pre><code>- (void)setSelected:(BOOL)selected
-{   
-}
-- (void)setHighlighted:(BOOL)highlighted
-{ 
-}
+              <p><strong>1、设置tableview中的cell无点击效果</strong></p>
+<pre><code>    cell.selectionStyle = UITableViewCellSelectionStyleNone;
 </code></pre>
+<p><strong>2、pop到指定界面</strong></p>
+<pre><code>    for (UIViewController *controller in self.navigationController.viewControllers) 
+    { 
+    if ([controller isKindOfClass:[AViewController class]]) { 
+        AViewController *A =(AViewController *)controller; 
+        [self.navigationController popToViewController:A animated:YES]; 
+        } 
+    }
+</code></pre>
+<p><strong>3、SDLayout使用注意：</strong><br>
+1、sd_resetLayout更新布局约束后要记得使用updateLayout来更新约束</p>
+<p><strong>4、UICollectionView设置底部圆角的是要要注意：</strong><br>
+1、使用setCornerOnBottom设置圆角会使collectionview左右滑动底部出现默认cell（参考建材管家首页实时库存）</p>
 
             </div>
             
@@ -370,7 +378,7 @@
     </li>
     <li class="post-copyright-link">
       <strong class="language" data-lan="link">本文链接：</strong>
-      <a href="https://qz-wzf.github.io/post/ios-zai-cell-shang-jia-zai-imageview-dong-hua-hua-dong-dong-hua-ting-zhi-jie-jue-ban-fa/" title="iOS在cell上加载UIImageVIew动画，滑动动画停止的解决办法">iOS在cell上加载UIImageVIew动画，滑动动画停止的解决办法</a>
+      <a href="https://qz-wzf.github.io/post/ri-chang-kai-fa-chang-yong/" title="日常开发常用">日常开发常用</a>
     </li>
     <li class="post-copyright-license">
       <strong class="language" data-lan="copyright">版权声明： </strong>
@@ -384,14 +392,14 @@
     <div class="nav-prev">
       
         <i class="fa fa-chevron-left"></i>
-        <a class="nav-pc-next" title="iOS审核大全" href="https://qz-wzf.github.io/post/ios-shen-he-da-quan/">iOS审核大全</a class="nav-pc-next">
-        <a class="nav-mobile-prev" title="iOS审核大全" href="https://qz-wzf.github.io/post/ios-shen-he-da-quan/">上一篇</a>
+        <a class="nav-pc-next" title="iOS中CollectionView设置无限滚动" href="https://qz-wzf.github.io/post/ios-zhong-collectionview-she-zhi-wu-xian-gun-dong/">iOS中CollectionView设置无限滚动</a class="nav-pc-next">
+        <a class="nav-mobile-prev" title="iOS中CollectionView设置无限滚动" href="https://qz-wzf.github.io/post/ios-zhong-collectionview-she-zhi-wu-xian-gun-dong/">上一篇</a>
       
     </div>
     <div class="nav-next">
       
-        <a class="nav-pc-next" title="MAC终端命令" href="https://qz-wzf.github.io/post/mac-zhong-duan-ming-ling/">MAC终端命令</a>
-        <a class="nav-mobile-next" title="MAC终端命令" href="https://qz-wzf.github.io/post/mac-zhong-duan-ming-ling/">下一篇</a>
+        <a class="nav-pc-next" title="iOS审核大全" href="https://qz-wzf.github.io/post/ios-shen-he-da-quan/">iOS审核大全</a>
+        <a class="nav-mobile-next" title="iOS审核大全" href="https://qz-wzf.github.io/post/ios-shen-he-da-quan/">下一篇</a>
         <i class="fa fa-chevron-right"></i>
       
     </div>

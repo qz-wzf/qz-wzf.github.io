@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://qz-wzf.github.io</id>
     <title>Mr.王</title>
-    <updated>2021-02-21T08:10:54.625Z</updated>
+    <updated>2021-11-29T01:49:14.211Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://qz-wzf.github.io"/>
     <link rel="self" href="https://qz-wzf.github.io/atom.xml"/>
@@ -10,6 +10,87 @@
     <logo>https://qz-wzf.github.io/images/avatar.png</logo>
     <icon>https://qz-wzf.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Mr.王</rights>
+    <entry>
+        <title type="html"><![CDATA[CABasicAnimation常见问题]]></title>
+        <id>https://qz-wzf.github.io/post/cabasicanimation-chang-jian-wen-ti/</id>
+        <link href="https://qz-wzf.github.io/post/cabasicanimation-chang-jian-wen-ti/">
+        </link>
+        <updated>2021-11-22T06:42:53.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>1、页面跳转后动画停止</strong><br>
+<code>animation.removedOnCompletion = NO;</code></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[iOS中CollectionView设置无限滚动]]></title>
+        <id>https://qz-wzf.github.io/post/ios-zhong-collectionview-she-zhi-wu-xian-gun-dong/</id>
+        <link href="https://qz-wzf.github.io/post/ios-zhong-collectionview-she-zhi-wu-xian-gun-dong/">
+        </link>
+        <updated>2021-11-11T09:19:17.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>1、设置UICollectionViewFlowLayout 切设置最大sections</strong></p>
+<pre><code>    #define YYMaxSections 100
+</code></pre>
+<pre><code class="language-objective-c">    UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+    flowLayout.itemSize = CGSizeMake();
+    flowLayout.minimumLineSpacing = 0;
+    flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;//设置滚动方向为横向滚动
+</code></pre>
+<p><strong>2、设置collectionview</strong></p>
+<pre><code class="language-objective-c">    _collectionView = [[UICollectionView alloc]initWithFrame:CGRectMake() collectionViewLayout:flowLayout];
+    _collectionView.showsHorizontalScrollIndicator = NO;
+    _collectionView.pagingEnabled = YES;//设置滚动为页码滚动
+    _collectionView.backgroundColor = kWhiteColor;
+    _collectionView.delegate = self;
+    _collectionView.dataSource = self;
+    [self.collectionView registerClass:[] forCellWithReuseIdentifier:@&quot;cell&quot;];
+    [self.view addSubview:_collectionView];
+    [self.collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:self.rowNum inSection:YYMaxSections/2] atScrollPosition:UICollectionViewScrollPositionLeft animated:YES];//设置初始偏移量
+</code></pre>
+<p><strong>3、设置collectionview代理</strong></p>
+<pre><code class="language-objective-c">    -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+        return YYMaxSections;
+    }
+
+    - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+        return self.allAry.count;
+    }
+
+    - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+        
+    }
+</code></pre>
+<p><strong>4、根据滚动距离查看当前item</strong></p>
+<pre><code class="language-objective-c">    - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    int page = (int) (scrollView.contentOffset.x/scrollView.frame.size.width+0.5)%self.allAry.count;
+    MLog(@&quot;page===============%d&quot;,page)
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[日常开发常用]]></title>
+        <id>https://qz-wzf.github.io/post/ri-chang-kai-fa-chang-yong/</id>
+        <link href="https://qz-wzf.github.io/post/ri-chang-kai-fa-chang-yong/">
+        </link>
+        <updated>2021-08-24T03:42:26.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>1、设置tableview中的cell无点击效果</strong></p>
+<pre><code>    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+</code></pre>
+<p><strong>2、pop到指定界面</strong></p>
+<pre><code>    for (UIViewController *controller in self.navigationController.viewControllers) 
+    { 
+    if ([controller isKindOfClass:[AViewController class]]) { 
+        AViewController *A =(AViewController *)controller; 
+        [self.navigationController popToViewController:A animated:YES]; 
+        } 
+    }
+</code></pre>
+<p><strong>3、SDLayout使用注意：</strong><br>
+1、sd_resetLayout更新布局约束后要记得使用updateLayout来更新约束</p>
+<p><strong>4、UICollectionView设置底部圆角的是要要注意：</strong><br>
+1、使用setCornerOnBottom设置圆角会使collectionview左右滑动底部出现默认cell（参考建材管家首页实时库存）</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[iOS审核大全]]></title>
         <id>https://qz-wzf.github.io/post/ios-shen-he-da-quan/</id>
@@ -72,6 +153,10 @@ export PATH=$PATH:$M2_HOME/bin
 </code></pre>
 <p>5、查看maven是否安装成功</p>
 <pre><code>maven -v
+</code></pre>
+<p><strong>三、Git常用操作</strong><br>
+1、修改最后一个提交信息描述</p>
+<pre><code>git commit --amend
 </code></pre>
 ]]></content>
     </entry>
