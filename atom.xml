@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://qz-wzf.github.io</id>
     <title>Mr.王</title>
-    <updated>2021-11-29T02:52:41.794Z</updated>
+    <updated>2021-12-10T02:50:04.612Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://qz-wzf.github.io"/>
     <link rel="self" href="https://qz-wzf.github.io/atom.xml"/>
@@ -88,7 +88,14 @@
 <p><strong>3、SDLayout使用注意：</strong><br>
 1、sd_resetLayout更新布局约束后要记得使用updateLayout来更新约束</p>
 <p><strong>4、UICollectionView设置底部圆角的是要要注意：</strong><br>
-1、使用setCornerOnBottom设置圆角会使collectionview左右滑动底部出现默认cell（参考建材管家首页实时库存）</p>
+1、使用setCornerOnBottom设置圆角会使collectionview左右滑动底部出现默认cell（参考建材管家首页实时库存）<br>
+<strong>5、Button：</strong><br>
+1、设置按钮文字居左显示</p>
+<pre><code>    btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+</code></pre>
+<p>2、设置左文右图</p>
+<pre><code>    [btn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+</code></pre>
 ]]></content>
     </entry>
     <entry>

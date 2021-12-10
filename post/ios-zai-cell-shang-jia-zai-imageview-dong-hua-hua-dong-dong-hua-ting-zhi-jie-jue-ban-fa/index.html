@@ -9,7 +9,7 @@
 <meta name="description" content="温故而后码">
 <meta name="theme-color" content="#000">
 <title>iOS在cell上加载UIImageVIew动画，滑动动画停止的解决办法 | Mr.王</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1638154289977">
+<link rel="shortcut icon" href="/favicon.ico?v=1639103517214">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -1526,7 +1526,14 @@
 &lt;p&gt;&lt;strong&gt;3、SDLayout使用注意：&lt;/strong&gt;&lt;br&gt;
 1、sd_resetLayout更新布局约束后要记得使用updateLayout来更新约束&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;4、UICollectionView设置底部圆角的是要要注意：&lt;/strong&gt;&lt;br&gt;
-1、使用setCornerOnBottom设置圆角会使collectionview左右滑动底部出现默认cell（参考建材管家首页实时库存）&lt;/p&gt;
+1、使用setCornerOnBottom设置圆角会使collectionview左右滑动底部出现默认cell（参考建材管家首页实时库存）&lt;br&gt;
+&lt;strong&gt;5、Button：&lt;/strong&gt;&lt;br&gt;
+1、设置按钮文字居左显示&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    btn.contentHorizontalAlignment = UIControlContentHorizontalAlignmentLeft;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;2、设置左文右图&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    [btn setImageEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+&lt;/code&gt;&lt;/pre&gt;
 ">日常开发常用</a>
       </div>
       
