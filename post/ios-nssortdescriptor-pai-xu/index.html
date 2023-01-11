@@ -9,7 +9,7 @@
 <meta name="description" content="温故而后码">
 <meta name="theme-color" content="#000">
 <title>iOS-NSSortDescriptor排序 | Mr.王</title>
-<link rel="shortcut icon" href="/favicon.ico?v=1639103517214">
+<link rel="shortcut icon" href="/favicon.ico?v=1673424667987">
 <link rel="stylesheet" href="/media/css/gemini.css">
 <link rel="stylesheet" href="/media/fonts/font-awesome.css">
 <link
@@ -201,7 +201,7 @@
     <div class="sidebar-item-box">
       <a href="/archives/">
         
-        <span class="site-item-stat-count">10</span>
+        <span class="site-item-stat-count">16</span>
         <span class="site-item-stat-name language" data-lan="article">文章</span>
       </a>
     </div>
@@ -1565,6 +1565,297 @@ for (TestModel *dataModel in dataAry) {
     <div class="result" id="result">
       
       <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://qz-wzf.github.io/post/oc-guo-ji-hua/"" data-c="
+          &lt;p&gt;&lt;strong&gt;常用工具&lt;/strong&gt;&lt;br&gt;
+1、https://github.com/CatchZeng/Localizable.strings2Excel/blob/master/README-CN.md 批量生成国际化文件&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;前言&lt;/strong&gt;&lt;br&gt;
+&lt;img src=&#34;https://qz-wzf.github.io/post-images/1673424660745.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;!-- more --&gt;
+">OC国际化</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://qz-wzf.github.io/post/ios-kai-yuan-wang-zhi/"" data-c="
+          &lt;p&gt;&lt;strong&gt;一、开源中国&lt;/strong&gt;&lt;br&gt;
+https://www.oschina.net/ios/codingList&lt;/p&gt;
+">iOS开源网址</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://qz-wzf.github.io/post/appium-zi-dong-hua-ji-cheng-mac/"" data-c="
+          &lt;p&gt;&lt;strong&gt;一、必要库安装&lt;/strong&gt;&lt;br&gt;
+有可能需要先更新系统版本以及xcode版本才进行下述操作：&lt;br&gt;
+如果过没有安装过HomeBrew，需先安装homebrew(https://brew.sh)&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/usr/bin/ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果没有安装npm，请到&lt;a href=&#34;https://www.liaoxuefeng.com/wiki/1022910821149312/1023025597810528&#34;&gt;node.js和npm安装&lt;/a&gt;&lt;br&gt;
+如果因为版本太高报错，需先降级&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;sudo npm install -g npm@6.14.10
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;安装依赖库&lt;/strong&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;brew install libimobiledevice --HEAD
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;如果没有安装 libimobiledevice，会导致Appium无法连接到iOS的设备，所以必须要安装。&lt;br&gt;
+Carthage安装：Carthage项目依赖管理， 类似于 java 的 maven； 主要是 WebDriverAgent 使用，WebDriverAgent 是用它做项目依赖的&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;brew install carthage
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;安装后检查是否安装成功&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt; carthage version
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;appium-doctor 安装&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;npm install appium-doctor -g
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;安装后执行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;appium-doctor --ios
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;指令，可以查看与iOS相关配置是否完整，下图是全部配置都成功,如果有那一项是打叉的，则进行安装就可以了。*黄色警告的可以不管&lt;br&gt;
+&lt;img src=&#34;https://qz-wzf.github.io/post-images/1653535529280.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+接下来就可以在&lt;a href=&#34;https://github.com/appium/appium-desktop/releases&#34;&gt;Appium-Desktop&lt;/a&gt;安装最新的Appium&lt;br&gt;
+&lt;img src=&#34;https://qz-wzf.github.io/post-images/1653535701534.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+以及最新定位工具&lt;a href=&#34;https://github.com/appium/appium-inspector/releases&#34;&gt;appium-inspector&lt;/a&gt;&lt;br&gt;
+&lt;img src=&#34;https://qz-wzf.github.io/post-images/1653536223854.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+接下来就可以在Appium Server GUI软件中修改自带WebDriverAgent&lt;br&gt;
+文件路径&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-webdriveragent
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;配置WebDriverAgent：&lt;/strong&gt;&lt;br&gt;
+1、配置WebDriverAgentLib及WebDriverAgentRunner，选择开发者账号&lt;br&gt;
+&lt;img src=&#34;https://qz-wzf.github.io/post-images/1653537392623.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+2、连接并选择自己的ios设备及项目，并运行&lt;br&gt;
+&lt;img src=&#34;https://qz-wzf.github.io/post-images/1653537436536.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://qz-wzf.github.io/post-images/1653537445989.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://qz-wzf.github.io/post-images/1653537481416.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+3、运行成功后会在手机桌面生成一个WebDriverAgent的APP，项目控制台当中也会打印出ip地址与端口号&lt;br&gt;
+&lt;img src=&#34;https://qz-wzf.github.io/post-images/1653537573377.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+4、成功后在真机浏览器输入127.0.0.1:8100/status ，如果显示如下，则表示成功&lt;br&gt;
+&lt;img src=&#34;https://qz-wzf.github.io/post-images/1653547566250.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+配置WebDriverAgent遇到的问题：&lt;br&gt;
+1、报错信息：Building for iOS, but the linked and embedded framework &#39;RoutingHTTPServer.framework&#39; was built for iOS + iOS Simulator&lt;br&gt;
+将Build Settings里的Validate Workspace修改为Yes，操作如下所示：&lt;br&gt;
+&lt;img src=&#34;https://qz-wzf.github.io/post-images/1653547133904.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+2、报错信息：/WebDriverAgent/WebDriverAgentLib/Utilities/FBFailureProofTestCase.m:29:1: Implementing deprecated method&lt;br&gt;
+将recordFailureWithDescription修改为recordIssue，操作如下所示：&lt;br&gt;
+&lt;img src=&#34;https://qz-wzf.github.io/post-images/1653547211476.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+3、WebDriverAgent/WebDriverAgentLib/Routing/FBWebServer.m:12:9: Could not build module &#39;RoutingHTTPServer&#39;&lt;/p&gt;
+&lt;p&gt;将@property (nonatomic,assign, readonly) 修改为：@property (nonatomic, strong, readonly)&lt;br&gt;
+4、Build成功后，执行Test会抛出异常，错误信息如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;WebDriverAgentRunner-Runner[1849:82950] -[UITestingUITests internalImplementation]: unrecognized selector sent to instance 0x283250c30
+    t =     0.05s     Assertion Failure: &amp;lt;unknown&amp;gt;:0: failed: caught &amp;quot;NSInvalidArgumentException&amp;quot;, 
+&amp;quot;-[UITestingUITests internalImplementation]: unrecognized selector sent to instance 0x283250c30&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;问题原因是FBFailureProofTestCase中internalImplementation这个API在XCode11.4版本以后已经删除&lt;br&gt;
+解决方法：打开WebDriverAgent/WebDriverAgentLib/Utilities/FBFailureProofTestCase.m，修改26~36行&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;self.internalImplementation =
+        (_XCTestCaseImplementation *)[FBXCTestCaseImplementationFailureHoldingProxy
+        proxyWithXCTestCaseImplementation:self.internalImplementation];
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;改为&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;if ([self respondsToSelector:@selector(internalImplementation)]) {
+      self.internalImplementation = (_XCTestCaseImplementation *)[FBXCTestCaseImplementationFailureHoldingProxy proxyWithXCTestCaseImplementation:self.internalImplementation];
+    } else {
+      //self.shouldSetShouldHaltWhenReceivesControl = NO;
+      self.shouldHaltWhenReceivesControl = NO;
+    }
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;img src=&#34;https://qz-wzf.github.io/post-images/1653547362029.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;strong&gt;配置Appium Server GUI工具&lt;/strong&gt;&lt;br&gt;
+1、运行Appium Server GUI，直接点击startServer&lt;br&gt;
+&lt;img src=&#34;https://qz-wzf.github.io/post-images/1653547714277.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+2、运行Appium Instector，配置如下信息&lt;br&gt;
+&lt;img src=&#34;https://qz-wzf.github.io/post-images/1653547773960.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;{
+  &amp;quot;platformName&amp;quot;: &amp;quot;iOS&amp;quot;,
+  &amp;quot;appium:platformVersion&amp;quot;: &amp;quot;12.4&amp;quot;,
+  &amp;quot;appium:deviceName&amp;quot;: &amp;quot;iPhone 7&amp;quot;,
+  &amp;quot;appium:udid&amp;quot;: &amp;quot;35363dd7b3b73f6b6cc204966ec8dfd514163361&amp;quot;,
+  &amp;quot;appium:bundleId&amp;quot;: &amp;quot;com.nflg.wms.ios&amp;quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;测试设备的udid,电脑连接上手机后，可以在Xcode的Window-&amp;gt;Deriver中查看&lt;br&gt;
+点击start session会报如下错误：&lt;br&gt;
+&lt;img src=&#34;https://qz-wzf.github.io/post-images/1653547899414.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+需要将新会话表单中的路径信息更新回/wd/hub，改成如下：&lt;br&gt;
+&lt;img src=&#34;https://qz-wzf.github.io/post-images/1653547946832.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+这样就可以了，首次会等待久一点&lt;/p&gt;
+">Appium自动化集成Mac</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://qz-wzf.github.io/post/ios-kai-fa-chang-yong-di-san-fang-zheng-li/"" data-c="
+          &lt;p&gt;&lt;strong&gt;---------------------------OC与Swift通用---------------------------&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;一、各种Banner效果：&lt;/strong&gt;&lt;br&gt;
+https://github.com/WenchaoD/FSPagerView&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;二、与web交互：&lt;/strong&gt;&lt;br&gt;
+https://github.com/marcuswestin/WebViewJavascriptBridge&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;三、实现json文件动态加载gif：Lottie&lt;/strong&gt;&lt;br&gt;
+https://github.com/airbnb/lottie-ios&lt;br&gt;
+json资源网站：https://lottiefiles.com/popular&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;四、输入框与键盘联动：IQKeyboardManager&lt;/strong&gt;&lt;br&gt;
+https://github.com/hackiftekhar/IQKeyboardManager&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;五、上拉加载：MJRefresh&lt;/strong&gt;&lt;br&gt;
+https://github.com/CoderMJLee/MJRefresh&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;---------------------------OC---------------------------&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;一、图片缓存：SDWebImage&lt;/strong&gt;&lt;br&gt;
+https://github.com/SDWebImage/SDWebImage&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;二、网络加载：AFNetworking&lt;/strong&gt;&lt;br&gt;
+https://github.com/AFNetworking/AFNetworking&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;三、数据解析：YYModel&lt;/strong&gt;&lt;br&gt;
+https://github.com/ibireme/YYModel&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;四、约束布局：SDAutoLayout或Masonry&lt;/strong&gt;&lt;br&gt;
+https://github.com/gsdios/SDAutoLayout&lt;br&gt;
+https://github.com/SnapKit/Masonry&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;五、常用Alert弹窗：LEEAlert&lt;/strong&gt;&lt;br&gt;
+https://github.com/lixiang1994/LEEAlert&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;六、日历选择控件：PGDatePicker&lt;/strong&gt;&lt;br&gt;
+https://github.com/xiaozhuxiong121/PGDatePicker&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;---------------------------Swift---------------------------&lt;/strong&gt;&lt;br&gt;
+&lt;strong&gt;一、图片缓存：Kingfisher&lt;/strong&gt;&lt;br&gt;
+https://github.com/onevcat/Kingfisher&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;二、网络加载：Alamofire&lt;/strong&gt;&lt;br&gt;
+https://github.com/Alamofire/Alamofire&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;三、数据解析：KakaJSON&lt;/strong&gt;&lt;br&gt;
+https://github.com/kakaopensource/KakaJSON&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;四、约束布局：SnapKit&lt;/strong&gt;&lt;br&gt;
+https://github.com/SnapKit/SnapKit&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;五、仿抖音评论底部弹出控件：HWPanModal&lt;/strong&gt;&lt;br&gt;
+https://github.com/HeathWang/HWPanModal&lt;/p&gt;
+">iOS开发常用第三方整理</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://qz-wzf.github.io/post/swift/"" data-c="
+          &lt;p&gt;&lt;strong&gt;常用属性&lt;/strong&gt;&lt;br&gt;
+1、?不一定有值时  !必定存在值&lt;br&gt;
+例1：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    var i: Int?
+    print(i)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输出结果为nil ，因为swift不会自动给创建的变量赋值（c语言不赋值就(根据编译器)随机给值，但用static创建的时候值默认为0）&lt;br&gt;
+例2：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    var i: Int?
+    print(i！)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;例3：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    var i: Int！
+    print(i！)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;两段代码的错误都为，输出时i都是！确认有值，但其实使用之前没有赋值，所以崩溃&lt;/p&gt;
+&lt;p&gt;2、？？空合并运算符&lt;br&gt;
+合并空值运算符(a??b)如何可选项a有值则展开，如果没有值是nil，则返回默认值b。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    let a: Int? = nil
+    let b: String = &amp;quot;123111&amp;quot;
+    print(a ?? b)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;上面就会输出“123111”&lt;/p&gt;
+&lt;p&gt;3、参数的内部名称和外部名称&lt;br&gt;
+Color这个结构体的构造方法中提供了三个参数，其中red是第一个参数的外部名称，redColor是第一个参数的内部名称；同理green和blue分别是第二、三个参数的外部名称，greenColor和blueColor分别是第二、三个参数的内部名称。外部名称在创建实例时的提示中显示，内部名称只能在构造方法内部使用，两个名称指的是同一个参数。在创建实例时会显示外部名称截图:&lt;br&gt;
+&lt;img src=&#34;https://qz-wzf.github.io/post-images/20170215111953769.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;p&gt;4、集合Set&lt;br&gt;
+(1)、Swift中，集合Set可以存放多个相同类型的数据&lt;br&gt;
+(2)、Set存放的数据是无序的&lt;br&gt;
+(3)、Set中存放的数据不能重复，如果重复，系统将会自动删除多余重复数字&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var set01:Set = [1,2,3,4,5,6,6]
+set01.insert(8)
+set01.remove(2)
+print(set01)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;输出结果为[5, 2, 4, 3, 6, 1]&lt;/p&gt;
+&lt;p&gt;5、数组排序&lt;br&gt;
+可以用本来数组接收&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;var set02:[Int] = [1,2,3,4,5,6,7]
+set02.sort { num, num1 in
+    return num &amp;gt; num1 ? true : false
+}
+print(set02)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;也可以用新数组接收&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;let sortArr : [Float] = [9.54,5.88,2.09,4.76,73.1,6.9,3.087]
+let endArr = sortArr.sorted { (num01, num02) -&amp;gt; Bool in
+    return num01 &amp;gt; num02 ? true : false
+}
+print(endArr)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;strong&gt;关键字&lt;/strong&gt;&lt;br&gt;
+1、 open:可以在任何地方访问、继承和重写&lt;/p&gt;
+&lt;p&gt;2、public:可以在任何地方被访问，在其他module中不能被继承和重写(一会在详细介绍一下什么是module内和module外)&lt;/p&gt;
+&lt;p&gt;3、internal:默认访问级别，在整个模块内都可以被访问&lt;/p&gt;
+&lt;p&gt;4、fileprivate:其修饰的属性可以再同一个文件被访问、继承和重写，同一个文件指同一个swift文件，一个文件中可以有多个类&lt;/p&gt;
+&lt;p&gt;5、private:其修饰的属性和方法只能在本类被访问和使用，不包括扩展类&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;闭包&lt;/strong&gt;&lt;br&gt;
+闭包其实和OC中的Block相似&lt;br&gt;
+我们可以这样定义下闭包表达式&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;{
+    (参数列表) -&amp;gt; 返回值类型 in
+    函数体代码
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;例子：&lt;br&gt;
+先定义一下方法&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;func testBlock(v1 : Int, v2 : Int, fn:(Int, Int) -&amp;gt; Int)
+{
+    print(fn(v1,v2))
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;或者：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;let closureFunction = { (para1: Int, para2: Int) -&amp;gt; Int in
+    return para1 + para2
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;调用下这个方法&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;testBlock(v1: 10, v2: 20) { v1, v2 in
+    return v1 + v2
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;可以输出值为30&lt;/p&gt;
+&lt;p&gt;嵌套函数&lt;br&gt;
+嵌套函数是指在函数内部又加了一个函数并执行相关操作的一种函数。嵌套函数拥有自己的名字，并且可以捕捉到上下文的变量值。例：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;func nestedBlock(nestedAmout amout: Int) -&amp;gt; () -&amp;gt;Int
+{
+    var float = 10
+    func nestedBlockSum() -&amp;gt; Int{
+        float = amout + float
+        return float
+    }
+    return nestedBlockSum
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;调用如下：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;let sum = nestedBlock(nestedAmout: 20)
+print(sum())
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;可以输出结果为30&lt;br&gt;
+nestedBlock这个函数接受一个int类型的参数，并且返回一个() -&amp;gt; Int的函数&lt;br&gt;
+nestedBlockSum是嵌套在nestedBlock函数内的一个闭包。注意，闭包都是引用类型&lt;/p&gt;
+">Swift学习</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://qz-wzf.github.io/post/ios-pan-duan-tableview-gun-dong-dao-di-ji-ge-section/"" data-c="
+          &lt;pre&gt;&lt;code&gt;- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat statusH = [UIApplication sharedApplication].statusBarFrame.size.height;
+    CGFloat bottomCellOffset = [self.tableView rectForSection:1].origin.y - statusH;
+    CGFloat bottomCellOffset2 = [self.tableView rectForSection:2].origin.y - statusH;
+
+    if (scrollView.contentOffset.y &amp;gt;= bottomCellOffset &amp;amp;&amp;amp; scrollView.contentOffset.y &amp;lt;= bottomCellOffset2)
+    {
+        NSLog(@&amp;quot;第一个sectionHeaderView滑动到顶部&amp;quot;);
+    }
+    else if (scrollView.contentOffset.y &amp;gt;= bottomCellOffset2)
+    {
+        NSLog(@&amp;quot;第二个sectionHeaderView滑动到顶部&amp;quot;);
+    }
+    else
+    {
+        NSLog(@&amp;quot;默认&amp;quot;);
+
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+">iOS判断tableview滚动到第几个section</a>
+      </div>
+      
+      <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://qz-wzf.github.io/post/cabasicanimation-chang-jian-wen-ti/"" data-c="
           &lt;p&gt;&lt;strong&gt;1、页面跳转后动画停止&lt;/strong&gt;&lt;br&gt;
 &lt;code&gt;animation.removedOnCompletion = NO;&lt;/code&gt;&lt;/p&gt;
@@ -1646,7 +1937,13 @@ for (TestModel *dataModel in dataAry) {
       <div class="item">
         <a class="result-title" style="opacity: 0;" href="https://qz-wzf.github.io/post/ios-shen-he-da-quan/"" data-c="
           &lt;p&gt;&lt;em&gt;一、隐私权限问题&lt;/em&gt;&lt;br&gt;
-1.iOS14最新推出了应用首次打开提示&lt;/p&gt;
+1.iOS14最新推出了应用首次打开提示&lt;br&gt;
+&lt;em&gt;二、首次提交检测项目包含UIWebView&lt;/em&gt;&lt;br&gt;
+1.cd到项目所在路径&lt;br&gt;
+2、输入以下命令&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;grep -r UIWebView .
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;3、成功后会出现那些文件包含UIWebView，删除对应的就行&lt;/p&gt;
 ">iOS审核大全</a>
       </div>
       
@@ -1700,6 +1997,7 @@ export PATH=$PATH:$M2_HOME/bin
 1、修改最后一个提交信息描述&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;git commit --amend
 &lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;2、使用管理员方式运行命令行：需要再命令行前面加上sudo&lt;/p&gt;
 ">MAC终端命令</a>
       </div>
       

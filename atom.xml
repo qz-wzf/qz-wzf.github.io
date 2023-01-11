@@ -2,14 +2,328 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://qz-wzf.github.io</id>
     <title>Mr.王</title>
-    <updated>2021-12-10T02:50:46.108Z</updated>
+    <updated>2023-01-11T08:15:31.199Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://qz-wzf.github.io"/>
     <link rel="self" href="https://qz-wzf.github.io/atom.xml"/>
     <subtitle>温故而后码</subtitle>
     <logo>https://qz-wzf.github.io/images/avatar.png</logo>
     <icon>https://qz-wzf.github.io/favicon.ico</icon>
-    <rights>All rights reserved 2021, Mr.王</rights>
+    <rights>All rights reserved 2023, Mr.王</rights>
+    <entry>
+        <title type="html"><![CDATA[OC国际化]]></title>
+        <id>https://qz-wzf.github.io/post/oc-guo-ji-hua/</id>
+        <link href="https://qz-wzf.github.io/post/oc-guo-ji-hua/">
+        </link>
+        <updated>2022-06-15T09:09:15.000Z</updated>
+        <summary type="html"><![CDATA[<p><strong>常用工具</strong><br>
+1、https://github.com/CatchZeng/Localizable.strings2Excel/blob/master/README-CN.md 批量生成国际化文件</p>
+<p><strong>前言</strong><br>
+<img src="https://qz-wzf.github.io/post-images/1673424660745.jpg" alt="" loading="lazy"></p>
+]]></summary>
+        <content type="html"><![CDATA[<p><strong>常用工具</strong><br>
+1、https://github.com/CatchZeng/Localizable.strings2Excel/blob/master/README-CN.md 批量生成国际化文件</p>
+<p><strong>前言</strong><br>
+<img src="https://qz-wzf.github.io/post-images/1673424660745.jpg" alt="" loading="lazy"></p>
+<!-- more -->
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[iOS开源网址]]></title>
+        <id>https://qz-wzf.github.io/post/ios-kai-yuan-wang-zhi/</id>
+        <link href="https://qz-wzf.github.io/post/ios-kai-yuan-wang-zhi/">
+        </link>
+        <updated>2022-06-02T02:36:09.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>一、开源中国</strong><br>
+https://www.oschina.net/ios/codingList</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Appium自动化集成Mac]]></title>
+        <id>https://qz-wzf.github.io/post/appium-zi-dong-hua-ji-cheng-mac/</id>
+        <link href="https://qz-wzf.github.io/post/appium-zi-dong-hua-ji-cheng-mac/">
+        </link>
+        <updated>2022-05-26T02:53:57.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>一、必要库安装</strong><br>
+有可能需要先更新系统版本以及xcode版本才进行下述操作：<br>
+如果过没有安装过HomeBrew，需先安装homebrew(https://brew.sh)</p>
+<pre><code>/usr/bin/ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot;
+</code></pre>
+<p>如果没有安装npm，请到<a href="https://www.liaoxuefeng.com/wiki/1022910821149312/1023025597810528">node.js和npm安装</a><br>
+如果因为版本太高报错，需先降级</p>
+<pre><code>sudo npm install -g npm@6.14.10
+</code></pre>
+<p><strong>安装依赖库</strong></p>
+<pre><code>brew install libimobiledevice --HEAD
+</code></pre>
+<p>如果没有安装 libimobiledevice，会导致Appium无法连接到iOS的设备，所以必须要安装。<br>
+Carthage安装：Carthage项目依赖管理， 类似于 java 的 maven； 主要是 WebDriverAgent 使用，WebDriverAgent 是用它做项目依赖的</p>
+<pre><code>brew install carthage
+</code></pre>
+<p>安装后检查是否安装成功</p>
+<pre><code> carthage version
+</code></pre>
+<p>appium-doctor 安装</p>
+<pre><code>npm install appium-doctor -g
+</code></pre>
+<p>安装后执行</p>
+<pre><code>appium-doctor --ios
+</code></pre>
+<p>指令，可以查看与iOS相关配置是否完整，下图是全部配置都成功,如果有那一项是打叉的，则进行安装就可以了。*黄色警告的可以不管<br>
+<img src="https://qz-wzf.github.io/post-images/1653535529280.png" alt="" loading="lazy"><br>
+接下来就可以在<a href="https://github.com/appium/appium-desktop/releases">Appium-Desktop</a>安装最新的Appium<br>
+<img src="https://qz-wzf.github.io/post-images/1653535701534.png" alt="" loading="lazy"><br>
+以及最新定位工具<a href="https://github.com/appium/appium-inspector/releases">appium-inspector</a><br>
+<img src="https://qz-wzf.github.io/post-images/1653536223854.png" alt="" loading="lazy"><br>
+接下来就可以在Appium Server GUI软件中修改自带WebDriverAgent<br>
+文件路径</p>
+<pre><code>/Applications/Appium Server GUI.app/Contents/Resources/app/node_modules/appium/node_modules/appium-webdriveragent
+</code></pre>
+<p><strong>配置WebDriverAgent：</strong><br>
+1、配置WebDriverAgentLib及WebDriverAgentRunner，选择开发者账号<br>
+<img src="https://qz-wzf.github.io/post-images/1653537392623.png" alt="" loading="lazy"><br>
+2、连接并选择自己的ios设备及项目，并运行<br>
+<img src="https://qz-wzf.github.io/post-images/1653537436536.png" alt="" loading="lazy"><br>
+<img src="https://qz-wzf.github.io/post-images/1653537445989.png" alt="" loading="lazy"><br>
+<img src="https://qz-wzf.github.io/post-images/1653537481416.png" alt="" loading="lazy"><br>
+3、运行成功后会在手机桌面生成一个WebDriverAgent的APP，项目控制台当中也会打印出ip地址与端口号<br>
+<img src="https://qz-wzf.github.io/post-images/1653537573377.png" alt="" loading="lazy"><br>
+4、成功后在真机浏览器输入127.0.0.1:8100/status ，如果显示如下，则表示成功<br>
+<img src="https://qz-wzf.github.io/post-images/1653547566250.png" alt="" loading="lazy"><br>
+配置WebDriverAgent遇到的问题：<br>
+1、报错信息：Building for iOS, but the linked and embedded framework 'RoutingHTTPServer.framework' was built for iOS + iOS Simulator<br>
+将Build Settings里的Validate Workspace修改为Yes，操作如下所示：<br>
+<img src="https://qz-wzf.github.io/post-images/1653547133904.jpg" alt="" loading="lazy"><br>
+2、报错信息：/WebDriverAgent/WebDriverAgentLib/Utilities/FBFailureProofTestCase.m:29:1: Implementing deprecated method<br>
+将recordFailureWithDescription修改为recordIssue，操作如下所示：<br>
+<img src="https://qz-wzf.github.io/post-images/1653547211476.jpg" alt="" loading="lazy"><br>
+3、WebDriverAgent/WebDriverAgentLib/Routing/FBWebServer.m:12:9: Could not build module 'RoutingHTTPServer'</p>
+<p>将@property (nonatomic,assign, readonly) 修改为：@property (nonatomic, strong, readonly)<br>
+4、Build成功后，执行Test会抛出异常，错误信息如下：</p>
+<pre><code>WebDriverAgentRunner-Runner[1849:82950] -[UITestingUITests internalImplementation]: unrecognized selector sent to instance 0x283250c30
+    t =     0.05s     Assertion Failure: &lt;unknown&gt;:0: failed: caught &quot;NSInvalidArgumentException&quot;, 
+&quot;-[UITestingUITests internalImplementation]: unrecognized selector sent to instance 0x283250c30&quot;
+</code></pre>
+<p>问题原因是FBFailureProofTestCase中internalImplementation这个API在XCode11.4版本以后已经删除<br>
+解决方法：打开WebDriverAgent/WebDriverAgentLib/Utilities/FBFailureProofTestCase.m，修改26~36行</p>
+<pre><code>self.internalImplementation =
+        (_XCTestCaseImplementation *)[FBXCTestCaseImplementationFailureHoldingProxy
+        proxyWithXCTestCaseImplementation:self.internalImplementation];
+</code></pre>
+<p>改为</p>
+<pre><code>if ([self respondsToSelector:@selector(internalImplementation)]) {
+      self.internalImplementation = (_XCTestCaseImplementation *)[FBXCTestCaseImplementationFailureHoldingProxy proxyWithXCTestCaseImplementation:self.internalImplementation];
+    } else {
+      //self.shouldSetShouldHaltWhenReceivesControl = NO;
+      self.shouldHaltWhenReceivesControl = NO;
+    }
+</code></pre>
+<p><img src="https://qz-wzf.github.io/post-images/1653547362029.jpg" alt="" loading="lazy"><br>
+<strong>配置Appium Server GUI工具</strong><br>
+1、运行Appium Server GUI，直接点击startServer<br>
+<img src="https://qz-wzf.github.io/post-images/1653547714277.png" alt="" loading="lazy"><br>
+2、运行Appium Instector，配置如下信息<br>
+<img src="https://qz-wzf.github.io/post-images/1653547773960.png" alt="" loading="lazy"></p>
+<pre><code>{
+  &quot;platformName&quot;: &quot;iOS&quot;,
+  &quot;appium:platformVersion&quot;: &quot;12.4&quot;,
+  &quot;appium:deviceName&quot;: &quot;iPhone 7&quot;,
+  &quot;appium:udid&quot;: &quot;35363dd7b3b73f6b6cc204966ec8dfd514163361&quot;,
+  &quot;appium:bundleId&quot;: &quot;com.nflg.wms.ios&quot;
+}
+</code></pre>
+<p>测试设备的udid,电脑连接上手机后，可以在Xcode的Window-&gt;Deriver中查看<br>
+点击start session会报如下错误：<br>
+<img src="https://qz-wzf.github.io/post-images/1653547899414.png" alt="" loading="lazy"><br>
+需要将新会话表单中的路径信息更新回/wd/hub，改成如下：<br>
+<img src="https://qz-wzf.github.io/post-images/1653547946832.png" alt="" loading="lazy"><br>
+这样就可以了，首次会等待久一点</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[iOS开发常用第三方整理]]></title>
+        <id>https://qz-wzf.github.io/post/ios-kai-fa-chang-yong-di-san-fang-zheng-li/</id>
+        <link href="https://qz-wzf.github.io/post/ios-kai-fa-chang-yong-di-san-fang-zheng-li/">
+        </link>
+        <updated>2022-05-20T02:47:08.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>---------------------------OC与Swift通用---------------------------</strong><br>
+<strong>一、各种Banner效果：</strong><br>
+https://github.com/WenchaoD/FSPagerView</p>
+<p><strong>二、与web交互：</strong><br>
+https://github.com/marcuswestin/WebViewJavascriptBridge</p>
+<p><strong>三、实现json文件动态加载gif：Lottie</strong><br>
+https://github.com/airbnb/lottie-ios<br>
+json资源网站：https://lottiefiles.com/popular</p>
+<p><strong>四、输入框与键盘联动：IQKeyboardManager</strong><br>
+https://github.com/hackiftekhar/IQKeyboardManager</p>
+<p><strong>五、上拉加载：MJRefresh</strong><br>
+https://github.com/CoderMJLee/MJRefresh</p>
+<p><strong>---------------------------OC---------------------------</strong><br>
+<strong>一、图片缓存：SDWebImage</strong><br>
+https://github.com/SDWebImage/SDWebImage</p>
+<p><strong>二、网络加载：AFNetworking</strong><br>
+https://github.com/AFNetworking/AFNetworking</p>
+<p><strong>三、数据解析：YYModel</strong><br>
+https://github.com/ibireme/YYModel</p>
+<p><strong>四、约束布局：SDAutoLayout或Masonry</strong><br>
+https://github.com/gsdios/SDAutoLayout<br>
+https://github.com/SnapKit/Masonry</p>
+<p><strong>五、常用Alert弹窗：LEEAlert</strong><br>
+https://github.com/lixiang1994/LEEAlert</p>
+<p><strong>六、日历选择控件：PGDatePicker</strong><br>
+https://github.com/xiaozhuxiong121/PGDatePicker</p>
+<p><strong>---------------------------Swift---------------------------</strong><br>
+<strong>一、图片缓存：Kingfisher</strong><br>
+https://github.com/onevcat/Kingfisher</p>
+<p><strong>二、网络加载：Alamofire</strong><br>
+https://github.com/Alamofire/Alamofire</p>
+<p><strong>三、数据解析：KakaJSON</strong><br>
+https://github.com/kakaopensource/KakaJSON</p>
+<p><strong>四、约束布局：SnapKit</strong><br>
+https://github.com/SnapKit/SnapKit</p>
+<p><strong>五、仿抖音评论底部弹出控件：HWPanModal</strong><br>
+https://github.com/HeathWang/HWPanModal</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[Swift学习]]></title>
+        <id>https://qz-wzf.github.io/post/swift/</id>
+        <link href="https://qz-wzf.github.io/post/swift/">
+        </link>
+        <updated>2022-05-16T07:25:44.000Z</updated>
+        <content type="html"><![CDATA[<p><strong>常用属性</strong><br>
+1、?不一定有值时  !必定存在值<br>
+例1：</p>
+<pre><code>    var i: Int?
+    print(i)
+</code></pre>
+<p>输出结果为nil ，因为swift不会自动给创建的变量赋值（c语言不赋值就(根据编译器)随机给值，但用static创建的时候值默认为0）<br>
+例2：</p>
+<pre><code>    var i: Int?
+    print(i！)
+</code></pre>
+<p>例3：</p>
+<pre><code>    var i: Int！
+    print(i！)
+</code></pre>
+<p>两段代码的错误都为，输出时i都是！确认有值，但其实使用之前没有赋值，所以崩溃</p>
+<p>2、？？空合并运算符<br>
+合并空值运算符(a??b)如何可选项a有值则展开，如果没有值是nil，则返回默认值b。</p>
+<pre><code>    let a: Int? = nil
+    let b: String = &quot;123111&quot;
+    print(a ?? b)
+</code></pre>
+<p>上面就会输出“123111”</p>
+<p>3、参数的内部名称和外部名称<br>
+Color这个结构体的构造方法中提供了三个参数，其中red是第一个参数的外部名称，redColor是第一个参数的内部名称；同理green和blue分别是第二、三个参数的外部名称，greenColor和blueColor分别是第二、三个参数的内部名称。外部名称在创建实例时的提示中显示，内部名称只能在构造方法内部使用，两个名称指的是同一个参数。在创建实例时会显示外部名称截图:<br>
+<img src="https://qz-wzf.github.io/post-images/20170215111953769.png" alt="" loading="lazy"></p>
+<p>4、集合Set<br>
+(1)、Swift中，集合Set可以存放多个相同类型的数据<br>
+(2)、Set存放的数据是无序的<br>
+(3)、Set中存放的数据不能重复，如果重复，系统将会自动删除多余重复数字</p>
+<pre><code>var set01:Set = [1,2,3,4,5,6,6]
+set01.insert(8)
+set01.remove(2)
+print(set01)
+</code></pre>
+<p>输出结果为[5, 2, 4, 3, 6, 1]</p>
+<p>5、数组排序<br>
+可以用本来数组接收</p>
+<pre><code>var set02:[Int] = [1,2,3,4,5,6,7]
+set02.sort { num, num1 in
+    return num &gt; num1 ? true : false
+}
+print(set02)
+</code></pre>
+<p>也可以用新数组接收</p>
+<pre><code>let sortArr : [Float] = [9.54,5.88,2.09,4.76,73.1,6.9,3.087]
+let endArr = sortArr.sorted { (num01, num02) -&gt; Bool in
+    return num01 &gt; num02 ? true : false
+}
+print(endArr)
+</code></pre>
+<p><strong>关键字</strong><br>
+1、 open:可以在任何地方访问、继承和重写</p>
+<p>2、public:可以在任何地方被访问，在其他module中不能被继承和重写(一会在详细介绍一下什么是module内和module外)</p>
+<p>3、internal:默认访问级别，在整个模块内都可以被访问</p>
+<p>4、fileprivate:其修饰的属性可以再同一个文件被访问、继承和重写，同一个文件指同一个swift文件，一个文件中可以有多个类</p>
+<p>5、private:其修饰的属性和方法只能在本类被访问和使用，不包括扩展类</p>
+<p><strong>闭包</strong><br>
+闭包其实和OC中的Block相似<br>
+我们可以这样定义下闭包表达式</p>
+<pre><code>{
+    (参数列表) -&gt; 返回值类型 in
+    函数体代码
+}
+</code></pre>
+<p>例子：<br>
+先定义一下方法</p>
+<pre><code>func testBlock(v1 : Int, v2 : Int, fn:(Int, Int) -&gt; Int)
+{
+    print(fn(v1,v2))
+}
+</code></pre>
+<p>或者：</p>
+<pre><code>let closureFunction = { (para1: Int, para2: Int) -&gt; Int in
+    return para1 + para2
+}
+</code></pre>
+<p>调用下这个方法</p>
+<pre><code>testBlock(v1: 10, v2: 20) { v1, v2 in
+    return v1 + v2
+}
+</code></pre>
+<p>可以输出值为30</p>
+<p>嵌套函数<br>
+嵌套函数是指在函数内部又加了一个函数并执行相关操作的一种函数。嵌套函数拥有自己的名字，并且可以捕捉到上下文的变量值。例：</p>
+<pre><code>func nestedBlock(nestedAmout amout: Int) -&gt; () -&gt;Int
+{
+    var float = 10
+    func nestedBlockSum() -&gt; Int{
+        float = amout + float
+        return float
+    }
+    return nestedBlockSum
+}
+</code></pre>
+<p>调用如下：</p>
+<pre><code>let sum = nestedBlock(nestedAmout: 20)
+print(sum())
+</code></pre>
+<p>可以输出结果为30<br>
+nestedBlock这个函数接受一个int类型的参数，并且返回一个() -&gt; Int的函数<br>
+nestedBlockSum是嵌套在nestedBlock函数内的一个闭包。注意，闭包都是引用类型</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[iOS判断tableview滚动到第几个section]]></title>
+        <id>https://qz-wzf.github.io/post/ios-pan-duan-tableview-gun-dong-dao-di-ji-ge-section/</id>
+        <link href="https://qz-wzf.github.io/post/ios-pan-duan-tableview-gun-dong-dao-di-ji-ge-section/">
+        </link>
+        <updated>2021-12-10T02:51:09.000Z</updated>
+        <content type="html"><![CDATA[<pre><code>- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    CGFloat statusH = [UIApplication sharedApplication].statusBarFrame.size.height;
+    CGFloat bottomCellOffset = [self.tableView rectForSection:1].origin.y - statusH;
+    CGFloat bottomCellOffset2 = [self.tableView rectForSection:2].origin.y - statusH;
+
+    if (scrollView.contentOffset.y &gt;= bottomCellOffset &amp;&amp; scrollView.contentOffset.y &lt;= bottomCellOffset2)
+    {
+        NSLog(@&quot;第一个sectionHeaderView滑动到顶部&quot;);
+    }
+    else if (scrollView.contentOffset.y &gt;= bottomCellOffset2)
+    {
+        NSLog(@&quot;第二个sectionHeaderView滑动到顶部&quot;);
+    }
+    else
+    {
+        NSLog(@&quot;默认&quot;);
+
+    }
+}
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[CABasicAnimation常见问题]]></title>
         <id>https://qz-wzf.github.io/post/cabasicanimation-chang-jian-wen-ti/</id>
@@ -105,317 +419,13 @@
         </link>
         <updated>2021-02-05T09:02:37.000Z</updated>
         <content type="html"><![CDATA[<p><em>一、隐私权限问题</em><br>
-1.iOS14最新推出了应用首次打开提示</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[iOS在cell上加载UIImageVIew动画，滑动动画停止的解决办法]]></title>
-        <id>https://qz-wzf.github.io/post/ios-zai-cell-shang-jia-zai-imageview-dong-hua-hua-dong-dong-hua-ting-zhi-jie-jue-ban-fa/</id>
-        <link href="https://qz-wzf.github.io/post/ios-zai-cell-shang-jia-zai-imageview-dong-hua-hua-dong-dong-hua-ting-zhi-jie-jue-ban-fa/">
-        </link>
-        <updated>2021-02-05T08:39:35.000Z</updated>
-        <content type="html"><![CDATA[<p><strong>解决办法：重写cell</strong></p>
-<pre><code>- (void)setSelected:(BOOL)selected
-{   
-}
-- (void)setHighlighted:(BOOL)highlighted
-{ 
-}
+1.iOS14最新推出了应用首次打开提示<br>
+<em>二、首次提交检测项目包含UIWebView</em><br>
+1.cd到项目所在路径<br>
+2、输入以下命令</p>
+<pre><code>grep -r UIWebView .
 </code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[MAC终端命令]]></title>
-        <id>https://qz-wzf.github.io/post/mac-zhong-duan-ming-ling/</id>
-        <link href="https://qz-wzf.github.io/post/mac-zhong-duan-ming-ling/">
-        </link>
-        <updated>2020-07-22T02:51:36.000Z</updated>
-        <content type="html"><![CDATA[<p><strong>一：安装JDK1.8安装包</strong><br>
-1、到 <a href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html"><font color=#16A7EF>Oracle官网</font></a>下载<br>
-<img src="https://qz-wzf.github.io/post-images/1595387640878.png" alt="" loading="lazy"><br>
-2、解压下载的包，然后根据步骤一步步安装<br>
-3、配置系统的环境变量，你要知道jdk的安装路径，然后输入命令进行过编辑</p>
-<pre><code>open .bash_profile
-</code></pre>
-<p>在文件当中输入jdk路径：</p>
-<pre><code>export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_211.jdk/Contents/Home
-</code></pre>
-<p>4、查看jdk是否安装成功，出现以下内容就证明安装成功了</p>
-<pre><code>java -version
-</code></pre>
-<figure data-type="image" tabindex="1"><img src="https://qz-wzf.github.io/post-images/1595388099403.png" alt="" loading="lazy"></figure>
-<p><strong>二：安装maven</strong><br>
-1、进入编辑profile</p>
-<pre><code> sudo vim /etc/profile 
-</code></pre>
-<p>2、输入英文状态下i，编写profile，输入以下文本</p>
-<pre><code>export M2_HOME=(maven路径)
-export PATH=$PATH:$M2_HOME/bin
-</code></pre>
-<p>3、然后按ESC退出编辑，输入下面命令保存</p>
-<pre><code>:wq!
-</code></pre>
-<p>4、输入以下命令使修改的profile文件生效：</p>
-<pre><code>source /etc/profile
-</code></pre>
-<p>5、查看maven是否安装成功</p>
-<pre><code>maven -v
-</code></pre>
-<p><strong>三、Git常用操作</strong><br>
-1、修改最后一个提交信息描述</p>
-<pre><code>git commit --amend
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[xcode升级出现问题]]></title>
-        <id>https://qz-wzf.github.io/post/xcode-sheng-ji-chu-xian-wen-ti/</id>
-        <link href="https://qz-wzf.github.io/post/xcode-sheng-ji-chu-xian-wen-ti/">
-        </link>
-        <updated>2020-07-20T02:28:37.000Z</updated>
-        <content type="html"><![CDATA[<p><strong>1、系统框架报错类似：photos出现Error</strong><br>
-解决办法：1、切换成老的编译环境Legacy Build System    xcode--file--project settings--Build System--legacy Build System<br>
-2、更新pods：cocoapods版本低也会造成编译失败</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[ios中关于collectionView刷新问题]]></title>
-        <id>https://qz-wzf.github.io/post/ios-zhong-guan-yu-collectionview-shua-xin-wen-ti/</id>
-        <link href="https://qz-wzf.github.io/post/ios-zhong-guan-yu-collectionview-shua-xin-wen-ti/">
-        </link>
-        <updated>2020-06-18T13:36:47.000Z</updated>
-        <content type="html"><![CDATA[<p>在我们日常开发中，难免用到collectionview，但是当我们的collectionView只加载一次的时候，修改model后使用reload进行刷新collectionView就会出现视图错乱的效果，让你找不到边，这时候我们就需要使用另外一种方法来进行刷新collectionView</p>
-<p>解决方法：在你需要刷新的时候遍历所有cell来进行刷新</p>
-<pre><code>for (DeviceMonitorCollectionViewCell *cell in collectionView.visibleCells) {
-    
-        NSIndexPath *indexPath = [collectionView indexPathForCell:cell];
-    
-        DeviceMonitorModel * model = self.dataArray[indexPath.item];
-        if (model.isSelect) {
-            cell.layer.borderColor = kRedColor.CGColor;
-            cell.layer.borderWidth = 1;
-        }
-        else
-        {
-            cell.layer.borderColor = kClearColor.CGColor;
-            cell.layer.borderWidth = 1;
-        }
-    }
-</code></pre>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[iOS-NSSortDescriptor排序]]></title>
-        <id>https://qz-wzf.github.io/post/ios-nssortdescriptor-pai-xu/</id>
-        <link href="https://qz-wzf.github.io/post/ios-nssortdescriptor-pai-xu/">
-        </link>
-        <updated>2020-06-03T07:14:19.000Z</updated>
-        <content type="html"><![CDATA[<p>在OC中，NSSortDescriptor可以按照对象的属性进行排序，也可以对一个字符串集合进行指定规则排序</p>
-<p><strong>初始化方法</strong><br>
-NSSortDescriptor的初始化方法有以下几种</p>
-<pre><code>+ (instancetype)sortDescriptorWithKey:(nullable NSString *)key ascending:(BOOL)ascending API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));
-+ (instancetype)sortDescriptorWithKey:(nullable NSString *)key ascending:(BOOL)ascending selector:(nullable SEL)selector API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));
-- (instancetype)initWithKey:(nullable NSString *)key ascending:(BOOL)ascending;
-- (instancetype)initWithKey:(nullable NSString *)key ascending:(BOOL)ascending selector:(nullable SEL)selector;
-+ (instancetype)sortDescriptorWithKey:(nullable NSString *)key ascending:(BOOL)ascending comparator:(NSComparator)cmptr API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));
-- (instancetype)initWithKey:(nullable NSString *)key ascending:(BOOL)ascending comparator:(NSComparator)cmptr API_AVAILABLE(macos(10.6), ios(4.0), watchos(2.0), tvos(9.0));
-</code></pre>
-<p><strong>项目演示</strong><br>
-首先我们创建一个简单的model：</p>
-<pre><code class="language-objective-c">@interface TestModel : NSObject
-
-//姓名
-@property (nonatomic, copy) NSString *name;
-//年龄
-@property (nonatomic, assign) NSInteger age;
-//身高
-@property (nonatomic, assign) NSInteger height;
-//地址
-@property (nonatomic, copy) NSString *address;
-
-@end
-</code></pre>
-<p>接下来在ViewController当中的应用：</p>
-<pre><code class="language-objective-c">//生成数据
-NSMutableArray * dataAry = [NSMutableArray array];
-NSArray *nameAry = @[@&quot;张三&quot;,@&quot;李四&quot;,@&quot;王五&quot;,@&quot;赵六&quot;,@&quot;小新&quot;];
-for (int i = 0; i &lt; nameAry.count; i++) {
-    TestModel * model = [TestModel new];
-    model.name = nameAry[i];
-    model.age = 30+i;
-    model.height = 170+i;
-    model.address = @&quot;福建省&quot;;
-    [dataAry addObject:model];
-}
-</code></pre>
-<p>筛选实现，按照年龄从小到大排序</p>
-<pre><code>NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@&quot;age&quot; ascending:YES];
-[dataAry sortUsingDescriptors:@[sort]];
-
-//输出结果
-for (TestModel *dataModel in dataAry) {
-    NSLog(@&quot;%@---%ld---%ld---%@&quot;,dataModel.name,dataModel.age,dataModel.height,dataModel.address);
-}
-</code></pre>
-<p><img src="https://qz-wzf.github.io/post-images/1591349875951.png" alt="" loading="lazy"><br>
-<strong>多条件筛选</strong></p>
-<pre><code>//生成数据
-NSMutableArray * dataAry = [NSMutableArray array];
-NSArray *nameAry = @[@&quot;张三&quot;,@&quot;李四&quot;,@&quot;王五&quot;,@&quot;赵六&quot;,@&quot;小新&quot;];
-for (int i = 0; i &lt; nameAry.count; i++) {
-    TestModel * model = [TestModel new];
-    model.name = nameAry[i];
-    model.age = 30+i/2;
-    model.height = 170+i;
-    model.address = @&quot;福建省&quot;;
-    [dataAry addObject:model];
-}
-
-NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@&quot;age&quot; ascending:YES];
-NSSortDescriptor *sort1 = [NSSortDescriptor sortDescriptorWithKey:@&quot;height&quot; ascending:NO];
-[dataAry sortUsingDescriptors:@[sort,sort1]];
-
-//输出结果
-for (TestModel *dataModel in dataAry) {
-    NSLog(@&quot;%@---%ld---%ld---%@&quot;,dataModel.name,dataModel.age,dataModel.height,dataModel.address);
-}
-</code></pre>
-<p><img src="https://qz-wzf.github.io/post-images/1591349864281.png" alt="" loading="lazy"><br>
-上面多条件筛选按照年龄从小到大，且身高从大到小排序</p>
-<p><strong>注意事项</strong><br>
-使用NSSortDescriptor进行排序是，如果后台返回的是字符串数字时，当有字符串数字位数不同是，筛选会根据首个数字进行排序，这样筛选出来的结果就有问题了<br>
-示例：</p>
-<pre><code>    //生成数据
-    NSMutableArray * dataAry = [NSMutableArray array];
-    NSArray *nameAry = @[@&quot;张三&quot;,@&quot;李四&quot;,@&quot;王五&quot;,@&quot;赵六&quot;,@&quot;小新&quot;];
-    NSArray *ageAry = @[@&quot;1&quot;,@&quot;22&quot;,@&quot;20&quot;,@&quot;212&quot;,@&quot;203&quot;];
-
-    for (int i = 0; i &lt; nameAry.count; i++) {
-        TestModel * model = [TestModel new];
-        model.name = nameAry[i];
-        model.age = ageAry[i];
-        model.height = 170+i;
-        model.address = @&quot;福建省&quot;;
-        [dataAry addObject:model];
-    }
-    
-    NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@&quot;age&quot; ascending:YES];
-    [dataAry sortUsingDescriptors:@[sort]];
-    
-    //输出结果
-    for (TestModel *dataModel in dataAry) {
-        NSLog(@&quot;%@---%@---%ld---%@&quot;,dataModel.name,dataModel.age,dataModel.height,dataModel.address);
-    }
-</code></pre>
-<p>输出结果：<img src="https://qz-wzf.github.io/post-images/1591349753531.png" alt="" loading="lazy"></p>
-<p><strong>解决方案</strong><br>
-一、可以把对应的属性设置成NSNumber</p>
-<p>二、在不影响之前的数据时，我们可以新建一个属性来存储转换过的数据<br>
-在.h中</p>
-<pre><code>@property (nonatomic, assign) NSInteger newAge;
-</code></pre>
-<p>在.m中</p>
-<pre><code>- (NSInteger)newAge
-{
-    NSString *ageStr = _age;
-    
-    _newAge = [ageStr intValue];
-    return _newAge;
-}
-</code></pre>
-<p>这样再进行筛选的时候就不会出现数据错乱了。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[iOS中钥匙串keychain的使用]]></title>
-        <id>https://qz-wzf.github.io/post/ios-zhong-yao-chi-chuan-keychain-de-shi-yong/</id>
-        <link href="https://qz-wzf.github.io/post/ios-zhong-yao-chi-chuan-keychain-de-shi-yong/">
-        </link>
-        <updated>2020-06-02T02:50:13.000Z</updated>
-        <content type="html"><![CDATA[<p>在我们日常开发中，数据如果没有接入数据库的话，大部分的数据都是存储在NSUserDefaults，这样很不安全，后面就开始慢慢的吧一些重要的数据存储在keychain当中了，也不用担心删除应用会删除之前存储的数据了。</p>
-<p><strong>如何使用</strong><br>
-首先导入系统框架Security.framework  然后创建KeyChain类<img src="https://qz-wzf.github.io/post-images/1591156632646.png" alt="" loading="lazy"><br>
-.h实现：</p>
-<pre><code class="language-#import">#import &lt;Security/Security.h&gt;
-
-@interface KeyChain : NSObject
-
-/**
- 存数据到KeyChain钥匙串
-
- @param service 你自定义的一个唯一标识作为对应的数据的Key值
- @param data 要存储的数据
- */
-+ (void)saveByKey:(NSString *)service Object:(id)data;
-
-/**
- 返回Key值对应得数据
-
- @param service 对应的Key值
- */
-+ (id)loadByKey:(NSString *)service;
-
-/**
- 删除Key值对应的得数据
-
- @param service 对应的Key值
- */
-+ (void)deleteByKey:(NSString *)service;
-
-@end
-</code></pre>
-<p>.m实现</p>
-<pre><code class="language-#import">
-@implementation CHKeychain
-+ (NSMutableDictionary *)getKeychainQuery:(NSString *)service {
-  return [NSMutableDictionary dictionaryWithObjectsAndKeys:
-          (id)kSecClassGenericPassword,(id)kSecClass,
-          service, (id)kSecAttrService,
-          service, (id)kSecAttrAccount,
-          (id)kSecAttrAccessibleAfterFirstUnlock,(id)kSecAttrAccessible,
-          nil];
-}
-//存
-+ (void)saveByKey:(NSString *)service Object:(id)data {
-  //得到旧数据
-  NSMutableDictionary *keychainQuery = [self getKeychainQuery:service];
-  //删除旧数据
-  SecItemDelete((CFDictionaryRef)keychainQuery);
-  //添加新对象到字典
-  [keychainQuery setObject:[NSKeyedArchiver archivedDataWithRootObject:data] forKey:(id)kSecValueData];
-  //添加到keychain
-  SecItemAdd((CFDictionaryRef)keychainQuery, NULL);
-}
-//删除
-+ (void)deleteByKey:(NSString *)service {
-  NSMutableDictionary *keychainQuery = [self getKeychainQuery:service];
-  SecItemDelete((CFDictionaryRef)keychainQuery);
-}
-//加载数据
-+ (id)loadByKey:(NSString *)service {
-  id ret = nil;
-  NSMutableDictionary *keychainQuery = [self getKeychainQuery:service];
-  //匹配得到数据
-  [keychainQuery setObject:(id)kCFBooleanTrue forKey:(id)kSecReturnData];
-  [keychainQuery setObject:(id)kSecMatchLimitOne forKey:(id)kSecMatchLimit];
-  CFDataRef keyData = NULL;
-  if (SecItemCopyMatching((CFDictionaryRef)keychainQuery, (CFTypeRef *)&amp;keyData) == noErr) {
-      @try {
-          ret = [NSKeyedUnarchiver unarchiveObjectWithData:(__bridge NSData *)keyData];
-      } @catch (NSException *e) {
-          NSLog(@&quot;Unarchive of %@ failed: %@&quot;, service, e);
-      } @finally {
-      }
-  }
-  if (keyData)
-      CFRelease(keyData);
-  return ret;
-}
-@end
-</code></pre>
-<p>除此之外，我们还可以通过配置keychain-sharing来使不同应用之间能够相互访问<br>
-<img src="https://qz-wzf.github.io/post-images/1591167919348.png" alt="" loading="lazy"><br>
-如图，在两个项目中配置keychain-sharing，这样就可以访问相互的keychain，以此达到数据共享。</p>
+<p>3、成功后会出现那些文件包含UIWebView，删除对应的就行</p>
 ]]></content>
     </entry>
 </feed>
