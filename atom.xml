@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://qz-wzf.github.io</id>
     <title>Mr.王</title>
-    <updated>2023-01-11T08:39:56.331Z</updated>
+    <updated>2023-01-11T08:43:01.394Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://qz-wzf.github.io"/>
     <link rel="self" href="https://qz-wzf.github.io/atom.xml"/>
@@ -17,13 +17,13 @@
         </link>
         <updated>2022-06-15T09:09:15.000Z</updated>
         <summary type="html"><![CDATA[<p><strong>常用工具</strong><br>
-1、https://github.com/CatchZeng/Localizable.strings2Excel/blob/master/README-CN.md 批量生成国际化文件</p>
-<p><strong>前言</strong><br>
+1、批量生成国际化文件：https://github.com/CatchZeng/Localizable.strings2Excel</p>
+<p><strong>一、创建文件</strong><br>
 <img src="https://qz-wzf.github.io/post-images/1673424660745.jpg" alt="" loading="lazy"></p>
 ]]></summary>
         <content type="html"><![CDATA[<p><strong>常用工具</strong><br>
-1、https://github.com/CatchZeng/Localizable.strings2Excel/blob/master/README-CN.md 批量生成国际化文件</p>
-<p><strong>前言</strong><br>
+1、批量生成国际化文件：https://github.com/CatchZeng/Localizable.strings2Excel</p>
+<p><strong>一、创建文件</strong><br>
 <img src="https://qz-wzf.github.io/post-images/1673424660745.jpg" alt="" loading="lazy"></p>
 <!-- more -->
 ]]></content>
